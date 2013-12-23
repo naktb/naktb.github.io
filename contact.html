@@ -1,0 +1,184 @@
+<!doctype html>
+<html class="no-js" lang="en" data-ng-app="naktbApp">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نَــكْــتِّــب | Contact Us</title>
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+  <script src="bower_components/modernizr/modernizr.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>-->
+  <script src="js/angular.min.js"></script>
+</head>
+<body class="home03">
+<div class="wrapper">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1 class="logo">
+          <a href="index.html"><img src="img/logo.png" alt="نَــكْــتِّــب" width="46" height="46" /><span class="slogan"> نَــكْــتِّــب</span></a>
+        </h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href=""><span> </span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right top-menu">
+        <li><a href="who.html" class="button">من نحن</a></li>
+        <li><a href="service.html" class="button">خدماتنا</a></li>
+        <li><a href="price.html" class="button">الأسعار</a></li>
+        <li class="active"><a href="contact.html" class="button">إتصل بنا</a></li>
+      </ul>
+
+    </section>
+  </nav>
+
+  <div class="main_content contact_page">
+    <div class="row">
+
+      <div class="large-7 medium-7  small-12  columns">
+        <div class="form_panel" data-ng-controller="RequestCtrl">
+          <div class="spinner_wrap" data-ng-show="spinner">
+            <img class="spinner" src="img/spinner.gif" alt="" width="16" height="16 " />
+          </div>
+          <h2 class="h1"></h2>
+
+          <form id="form1" name="form1" class="wufoo form topLabel page" autocomplete="off"
+                enctype="multipart/form-data"
+                method="post" novalidate>
+
+            <div class="row">
+              <div class="large-6 columns">
+                <label class="desc" id="title7" for="Field7"> الإســــم <span id="req_7" class="req"></span> </label>
+
+                <div class="error_wrap">
+                  <input id="Field7" name="Field7" type="text" class="field text medium" value=""
+                         maxlength="255" tabindex="1" required data-ng-model="reqForm.Field7"
+                         placeholder="الإســــم"
+                         data-ng-class="{error: form1.Field7.$error.required}"
+                         data-ng-focus="checkDefaults(form1.Field7.$name)"
+                         data-ng-blur="checkEntered(form1.Field7.$name)"
+                      />
+
+                  <div class="error_placeholder">
+                            <span class="error error_label"
+                                  data-ng-show="!form1.Field7.$pristine && form1.Field7.$error.required">Please, enter your name</span>
+                  </div>
+                </div>
+              </div>
+              <div class="large-6 columns">
+                <label class="desc" id="title3" for="Field3"> البريد الإلكتروني <span id="req_3"
+                                                                                      class="req"></span> </label>
+
+                <div class="error_wrap">
+                  <div class="error_placeholder">
+                    <input id="Field3" name="Field3" type="email" spellcheck="false" class="field text medium"
+                           value="" maxlength="255" tabindex="2" required data-ng-model="reqForm.Field3"
+                           placeholder="email@example.com"
+                           data-ng-class="{error: form1.Field3.$error.required || form1.Field3.$error.email}"
+                           data-ng-focus="checkDefaults(form1.Field3.$name)"
+                           data-ng-blur="checkEntered(form1.Field3.$name)"
+                        />
+                            <span class="error error_label"
+                                  data-ng-show="!form1.Field3.$pristine && form1.Field3.$error.required">من فضلك أدخل
+                                                                                                         إيميلك</span>
+              <span class="error error_label" data-ng-show="form1.Field3.$error.email">عفواً ، أدخلت ايميلاً خاطئاً ، فضلاً أدخل
+                                                                            الإيميل الصحيح</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-12 column">
+                <label class="desc" id="title4" for="Field4"> الموضوع </label>
+                <input id="Field4" name="Field4" type="text" class="field text medium" value=""
+                       maxlength="255" tabindex="3" data-ng-model="reqForm.Field4" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 column">
+                <label class="desc" id="title5" for="Field5">الرسالة <span id="req_5" class="req"></span> </label>
+
+                <div class="error_wrap">
+
+                  <textarea id="Field5"
+                            name="Field5"
+                            class="field textarea medium"
+                            spellcheck="true"
+                            rows="5" cols="50"
+                            tabindex="4"
+                            required data-ng-model="reqForm.Field5"
+                            data-ng-minlength="15"
+                            data-ng-class="{error: form1.Field5.$error.required || (form1.Field5.$error.minlength && !form1.Field5.$pristine)}"
+                            data-ng-focus="checkDefaults(form1.Field5.$name)"
+                            data-ng-blur="checkEntered(form1.Field5.$name)"
+
+                      >إكتب هنا رسالتك </textarea>
+
+                  <div class="error_placeholder">
+                    <span class="error error_label"
+                          data-ng-show="!form1.Field5.$pristine && form1.Field5.$error.required">Please, describe you
+                                                                                               request</span>
+                    <span class="error error_label"
+                          data-ng-show="form1.Field5.$error.minlength && !form1.Field5.$pristine">عفواً رسالتك قصيرة جداً كرماً اشرح لنا أكثر</span>
+                  </div>
+                </div>
+                <button id="saveForm" name="saveForm" class="left round submit button" type="submit"
+                        data-ng-disabled="form1.$error.required || form1.Field7.$pristine || form1.Field3.$pristine || form1.Field5.$pristine || !form1.$valid || noResend" data-ng-click="checkForm()">
+                  إرسـال
+                </button>
+
+                <div class="clear"></div>
+
+
+                <div data-alert class="alert-box success radius" data-ng-show="sendSuccess">
+                  شكراً لتواصلك معنا. سوف نتواصل معك في أقرب وقت ممكن
+                  <a href="#" class="close" >&times;</a>
+                </div>
+
+                <div data-alert class="alert-box warning radius" data-ng-show="sendError">
+                  نأسف لحدوث ذلك ،يبدو ان هناك مشكلة في ادخالك للبيانات . الرجاء التأكد من البيانات والمحاولة مرة اخرى
+                  <a href="mailto:info@jetthoughts.com">info@jetthoughts.com</a>
+                  <a href="#" class="close" >&times;</a>
+                </div>
+
+              </div>
+
+
+              <li class="hide">
+                <label for="comment">Do Not Fill This Out</label>
+                <textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+                <input type="hidden" id="idstamp" name="idstamp"
+                       value="9JafsAHmdSCQ8bbqqNpstzAidGRgtd9O1+zsm0/6vAA=" />
+              </li>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="push"></div>
+</div>
+
+<footer class="footer">
+  <div class="footer_nav">
+    <a class="footer_link" href="return_policy.html">سياسة الإسترجاع</a> <a class="footer_link" href="terms.html">الشروط
+                                                                                                                  والاحكام</a>
+  </div>
+</footer>
+
+
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script src="bower_components/foundation/js/foundation.min.js"></script>
+<script src="bower_components/foundation/js/foundation/foundation.offcanvas.js"></script>
+<script>
+  $(document).foundation();
+</script>
+<script src="js/app.js"></script>
+<!--<script src="js/wufoo_contact.js"></script>-->
+</body>
+</html>

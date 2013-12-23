@@ -1,0 +1,147 @@
+@import "colours";
+
+$side_margins_xxlarge: 400px;
+$side_margins_xlarge: 200px;
+$side_margins_large: 100px;
+$side_margins_medium: auto;
+$footer_nav_height: 100px;
+html, body {
+  height: 100%;
+}
+
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-top: 0;
+  margin-bottom:-($footer_nav_height);
+}
+
+.footer, .push {
+  height: $footer_nav_height;
+}
+
+@mixin sticky($h) {
+  .footer,.push {
+    height: $h;
+  }
+  .wrapper {
+    margin-bottom: -($h);
+  }
+}
+
+.row {
+  margin-left: $side_margins_large;
+  margin-right: $side_margins_large;
+  max-width: inherit;
+  width: auto;
+}
+
+.top-bar {
+  margin-left: $side_margins_large;
+  margin-right: $side_margins_large;
+}
+
+.footer {
+  position: relative;
+  margin-left: $side_margins_large;
+  margin-right: $side_margins_large;
+}
+
+.footer_nav {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
+.footer_link {
+  font-size: 14px;
+  color: $mid_gray;
+  margin: 10px 20px;
+  &.active,
+  &:hover {
+    color: $blue_bg;
+  }
+}
+
+@media #{$small-up} { }
+
+@media #{$small-only} {
+  body {
+    background-image: none !important;
+  }
+  .top-bar,
+  .top-bar.expanded {
+    margin-top: -1px;
+    background: $dust_dark;
+    padding-top: 2px;
+    .slogan {
+      color: $white;
+      text-shadow: none;
+      top: 10px;
+    }
+  }
+  .top-bar.expanded {
+    .title-area {
+      background: $dust_dark;
+    }
+    .top-menu {
+      .button {
+        background: $light_gray_2;
+        border-radius: 0;
+        &:hover {
+          background: $mid_gray;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  .row, .top-bar, .footer {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+  }
+  .panel {
+    &.scroll {
+      overflow-y: visible;
+      max-height: none;
+    }
+  }
+}
+
+@media #{$medium-up} { }
+
+@media #{$medium-only} {
+  .row, .top-bar, .footer {
+    margin-left: $side_margins_medium;
+    margin-right: $side_margins_medium;
+  }
+  @include sticky(50px);
+}
+
+@media #{$large-up} { }
+
+@media #{$large-only} {
+  @include sticky(70px);
+}
+
+@media #{$xlarge-up} {
+  .row, .top-bar, .footer {
+    margin-right: $side_margins_xlarge;
+    margin-left: $side_margins_xlarge;
+  }
+}
+
+@media #{$xlarge-only} { }
+
+@media #{$xxlarge-up} {
+  .row, .top-bar, .footer {
+    margin-right: $side_margins_xxlarge;
+    margin-left: $side_margins_xxlarge;
+  }
+}
+
+@media #{$xxlarge-only} { }
+
+

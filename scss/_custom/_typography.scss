@@ -1,0 +1,93 @@
+.rtl {
+  direction: rtl !important;
+}
+
+.ltr {
+  direction: ltr !important;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.ul {
+  font-size: 12px;
+  margin-bottom: 10px;
+  .item,
+  .li {
+    list-style: none;
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 5px;
+    &:before {
+      content: '\2022';
+      font-family: serif;
+      font-size: 12px;
+      color: $red;
+      position: absolute;
+      left: 4px;
+      top: 1px;
+    }
+  }
+}
+
+hr {
+  border: {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 1px solid $explicit_gray;
+  }
+  margin-bottom: 15px;
+}
+
+em, i {
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+table {
+  tr {
+    th {
+      color: $black;
+      font-size: 120%;
+      font-weight: normal;
+      vertical-align: middle;
+      background: $explicit_gray;
+    }
+  }
+}
+
+.f20 {
+  font-size: 20px;
+}
+
+.pricing-table {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.blockquote {
+  color: $black;
+  border-right: none;
+  text-shadow: 0 1px 20px #ffffff,0 -1px 7px #FFFFFF,-2px -1px 7px #ffffff, 2px 1px 7px #ffffff;
+  p {
+    font-size: 22px;
+    color: $black;
+    margin-bottom: 10px;
+  }
+  ul {
+    font-size: 22px;
+  }
+}

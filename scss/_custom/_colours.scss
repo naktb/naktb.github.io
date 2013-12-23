@@ -1,0 +1,51 @@
+$white: #fff;
+$black: #000;
+$dark_gray: #333;
+$dark_blue: #272b37;
+$blue_bg: #004b94;
+$mid_blue: #2a4b94;
+$light_blue: #5583b8;
+$blue: #4d90fe;
+$blue_hover: saturate($blue,55%);
+$new_red_rgb: rgb(225,26,34);
+$red: $new_red_rgb;
+$drop_down_bg: $new_red_rgb;
+
+$gold: gold;
+$gold_bright: saturate($gold,7%);
+$gold_dust: darken($gold_bright, 10%);
+$green: darken(green,10%);
+
+$bg_gray: rgb(229,229,229);
+$explicit_gray: #ebebeb;
+$light_gray: #e9e4e4;
+$light_gray_2: #c9c6c6;
+$light_gray_3: #b2b2b2;
+$light_gray_4: #f9f9f9;
+$light_gray_5: #f2f2f2;
+$mid_gray: #808080;
+$date_gray: #999;
+
+$dust_dark: #272b37;
+
+$dusty_gray: #c0c7cf;
+
+.gold_bg {
+  color: $white;
+  background: $gold_dust;
+}
+
+.green_bg {
+  color: $white;
+  background: $green;
+}
+
+.blue_bg {
+  color: $white;
+  background: $mid_blue;
+}
+
+.gray_bg {
+  color: $white;
+  background: $dust_dark;
+}

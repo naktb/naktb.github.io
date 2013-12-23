@@ -1,0 +1,9 @@
+.main_content {
+  p, h1, h2, h3, h4, h5, h6, ul {
+    text-shadow: 0 1px 20px #ffffff,0 -1px 7px #FFFFFF,-2px -1px 7px #ffffff, 2px 1px 7px #ffffff
+  }
+}
+
+.panel {
+  background: transparentize($bg_gray, 0.33);
+}

@@ -1,0 +1,56 @@
+@import "colours";
+
+.home01 {
+  background: #fff url("../img/home_bg.jpg") no-repeat 100% 100%;
+}
+
+.home02 {
+  background: #fff url("../img/home_bg_02.jpg") no-repeat 100% 100%;
+}
+
+.home03 {
+  background: $bg_gray url("../img/home_bg_05.jpg") no-repeat -40px 100%;
+  background-attachment: fixed;
+  background-size: contain;
+  -o-background-size: contain;
+  -webkit-background-size: contain;
+}
+
+$home_min_height: 791px;
+$home_bg_top_gap: 300px;
+
+.panel {
+  border-radius: 6px;
+  margin-bottom: 0;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clearfix,
+.container,
+.row {
+  &:after,
+  &:before {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+  zoom: 1;
+}
+
+.hid {
+  visibility: hidden;
+}
