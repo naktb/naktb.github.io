@@ -43,7 +43,7 @@ function CallMeCtrl($scope, $http) {
 
     $scope.postCallMeForm = function () {
         $scope.spinner = true;
-        return $http.post('https://natb.wufoo.com/api/v3/forms/'+$scope.formName+'/entries.json', $scope.callForm)
+        return $http.post('http://api.naktb.com/index.php?functionName=submitForm&formName=' + $scope.formName, $scope.callForm)
             .success(function (data, status, headers, config) {
                 $scope.spinner = false;
                 if (status === 200) {
@@ -106,7 +106,7 @@ function RequestCtrl($scope, $http) {
 
     $scope.postRequestForm = function () {
         $scope.spinner = true;
-        return $http.post('https://natb.wufoo.com/api/v3/forms/'+$scope.formName+'/entries.json', $scope.reqForm)
+        return $http.post('http://api.naktb.com/index.php?functionName=submitForm&formName=' + $scope.formName, $scope.reqForm)
             .success(function (data, status, headers, config) {
                 $scope.spinner = false;
                 if (status === 200) {
