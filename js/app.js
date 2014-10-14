@@ -3,9 +3,9 @@ var naktbApp = angular.module('naktbApp', []);
 function CallMeCtrl($scope, $http) {
     $scope.spinner = false;
     $scope.phonePat = /^[0-9]+$/;
-    $scope.formName = 'mkfg85l0d34huw';
+    $scope.formName = 'm1fj3yms1jn9uw1';
     $scope.callForm = {};
-    $scope.callForm.idstamp = 'xhbHmxD/zTYioxaXirLo01P69S1wBcuKZB8yPVHW1uE=';
+    $scope.callForm.idstamp = '9dEE38FnE/bKQEDjFp3OJfov8wcRTE2xjgD/QyJg8Wo=';
     $scope.callForm.comment = '';
     $scope.callForm.defaults = {
         'Field1': '0000000000',
@@ -20,7 +20,7 @@ function CallMeCtrl($scope, $http) {
         if (!$scope.noResend) {
             $scope.postCallMeForm();
         }
-    }
+    };
 
     $scope.checkDefaults = function (inputName) {
         if ($scope.callForm[inputName] == $scope.callForm.defaults[inputName]) {
@@ -64,9 +64,9 @@ function CallMeCtrl($scope, $http) {
 
 function RequestCtrl($scope, $http) {
     $scope.spinner = false;
-    $scope.formName = 'z1h9lu2k1r50dmw';
+    $scope.formName = 'ztfue381bklybu';
     $scope.reqForm = {};
-    $scope.reqForm.idstamp = '9JafsAHmdSCQ8bbqqNpstzAidGRgtd9O1+zsm0/6vAA=';
+    $scope.reqForm.idstamp = 'BoYVr3HCJu+/SX2h35I+I2+IwFRIAoVhr4ICjPByUlc=';
     $scope.reqForm.comment = '';
     $scope.reqForm.defaults = {
         'Field3': 'email@example.com',
@@ -84,7 +84,7 @@ function RequestCtrl($scope, $http) {
         if (!$scope.noResend) {
             $scope.postRequestForm();
         }
-    }
+    };
 
     $scope.checkDefaults = function (inputName) {
         if ($scope.reqForm[inputName] == $scope.reqForm.defaults[inputName]) {
