@@ -1,0 +1,7 @@
+.contact_page {
+  .form_panel {
+    @extend .panel;
+    margin-top: 20px;
+//    background: transparentize($bg_gray, 0.33);
+  }
+}

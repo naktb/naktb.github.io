@@ -53,7 +53,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    outputStyle: 'expanded'
+                    outputStyle: 'compressed'
                 },
                 files: {
                     'css/app.css': 'scss/app.scss'
