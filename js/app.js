@@ -43,6 +43,7 @@ function CallMeCtrl($scope, $http) {
 
     $scope.postCallMeForm = function () {
         $scope.spinner = true;
+        $scope.noResend = true;
         return $http.post('http://api.naktb.com/index.php?functionName=submitForm&formName=' + $scope.formName, $scope.callForm)
             .success(function (data, status, headers, config) {
                 $scope.spinner = false;
@@ -51,12 +52,10 @@ function CallMeCtrl($scope, $http) {
                 } else {
                     $scope.sendError = true;
                 }
-                $scope.noResend = true;
             })
             .error(function (data, status, headers, config) {
                 $scope.spinner = false;
-                $scope.sendError = true
-                $scope.noResend = true;
+                $scope.sendError = true;
             });
     };
 
@@ -106,6 +105,7 @@ function RequestCtrl($scope, $http) {
 
     $scope.postRequestForm = function () {
         $scope.spinner = true;
+        $scope.noResend = true;
         return $http.post('http://api.naktb.com/index.php?functionName=submitForm&formName=' + $scope.formName, $scope.reqForm)
             .success(function (data, status, headers, config) {
                 $scope.spinner = false;
@@ -114,12 +114,10 @@ function RequestCtrl($scope, $http) {
                 } else {
                     $scope.sendError = true;
                 }
-                $scope.noResend = true;
             })
             .error(function (data, status, headers, config) {
                 $scope.spinner = false;
                 $scope.sendError = true;
-                $scope.noResend = true;
             });
     };
 
