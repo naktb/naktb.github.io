@@ -3,7 +3,7 @@
   "dependencies": {
     "foundation": "zurb/bower-foundation",
     "angular-file-upload": "~1.1.5",
-    "angular-route": "~1.4.0",
-    "angular-resource": "~1.4.0"
+    "angular-route": "~1.2.8",
+    "angular-resource": "~1.2.8"
   }
 }
