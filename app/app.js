@@ -1,7 +1,12 @@
-//angular.module('naktbApp.services',[]);
+angular.module('naktbApp.services',[]);
 angular.module('naktbApp.main', []);
 
-angular.module('naktbApp', ['ngRoute', 'naktbApp.main'])
+angular.module('naktbApp',
+    [
+      'ngRoute',
+      'naktbApp.main',
+      'naktbApp.services'
+    ])
 
 
 
