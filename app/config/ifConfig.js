@@ -1,3 +1,5 @@
+var ifConfig =
+
 {
   "orderForm": {
     "academicLevel": [
@@ -107,4 +109,7 @@
       "Other (enter below)"
     ]
   }
-}
+};
+
+if (typeof window === 'undefined')
+  exports.ifConfig = ifConfig;

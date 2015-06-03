@@ -22,13 +22,7 @@
       </ul>
 
       <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right top-menu">
-          <!--<li><a href="____who.html" class="button">من نحن</a></li>-->
-          <!--<li><a href="service.html" class="button">خدماتنا</a></li>-->
-          <!--<li><a href="price.html" class="button">الأسعار</a></li>-->
-          <!--<li><a href="contact.html" class="button">اطلب</a></li>-->
-        </ul>
+        <div ng-include="topMenuUrl" ng-controller="TopMenuController"></div>
 
       </section>
     </nav>
@@ -59,7 +53,14 @@
   <!--<script src="/bower_components/angular-resource/angular-resource.js"></script>-->
   <script src="/app/app.js"></script>
   <script src="/app/main.js"></script>
-  <!--<script src="/app/services/formHandler.js"></script>-->
+  <script src="/app/services/formHandler.js"></script>
+
+  <script src="/app/partials/CallMeBackController.js"></script>
+  <script src="/app/partials/TopMenuController.js"></script>
+
+  <script src="/app/Home/HomeController.js"></script>
+
+  <script src="/app/config/ifConfig.js"></script>
   <script src="/bower_components/jquery/jquery.min.js"></script>
   <script src="/bower_components/foundation/js/foundation.min.js"></script>
   <script src="/bower_components/foundation/js/foundation/foundation.offcanvas.js"></script>

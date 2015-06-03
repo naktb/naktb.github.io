@@ -1,21 +1,23 @@
 angular.module('naktbApp.services',[]);
 angular.module('naktbApp.main', []);
+angular.module('naktbApp.partials', []);
 
 angular.module('naktbApp',
     [
       'ngRoute',
       'naktbApp.main',
-      'naktbApp.services'
+      'naktbApp.services',
+      'naktbApp.partials'
+
     ])
 
 
 
     .config(function($routeProvider, $locationProvider) {
-      alert('asdsd');
       $routeProvider
           .when('/', {
             templateUrl: '/app/Home/_home.html',
-            controller: 'MainController',
+            controller: 'HomeController',
             pageName: 'homePage'
           })
           .otherwise({

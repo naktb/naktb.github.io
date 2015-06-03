@@ -1,71 +1,71 @@
 <form id="callForm" name="form" class="wufoo form topLabel page" autocomplete="off"
       enctype="multipart/form-data"
       method="post" novalidate
-      >
-  <div class="spinner_wrap" data-ng-show="spinner">
+      ng-controller="CallMeBackController">
+  <div class="spinner_wrap" ng-show="spinner">
     <img class="spinner" src="img/spinner.gif" alt="" width="16" height="16 " />
   </div>
   <div class="form_panel request_form">
     <div class="row">
       <div class="large-6 medium-6 columns">
         <div class="error_wrap">
-          <input id="Field3" name="Field3" data-ng-model="callForm.Field3" type="text"
+          <input id="Field3" name="Field3" ng-model="callForm.Field3" type="text"
                  class="field text medium"
                  value=""
                  maxlength="255"
                  tabindex="2"
                  required
                  placeholder="الإســـــم"
-                 data-ng-class="{error: form.Field3.$error.required }"
-                 data-ng-focus="checkDefaults(form.Field3.$name)"
-                 data-ng-blur="checkEntered(form.Field3.$name)"
+                 ng-class="{error: form.Field3.$error.required }"
+                 ng-focus="checkDefaults(form.Field3.$name)"
+                 ng-blur="checkEntered(form.Field3.$name)"Mo
               />
 
           <div class="error_placeholder">
 
               <span class="error error_label"
-                    data-ng-show="!form.Field3.$pristine && form.Field3.$error.required">من فضلك إكتب إسمك </span>
+                    ng-show="!form.Field3.$pristine && form.Field3.$error.required">من فضلك إكتب إسمك </span>
           </div>
         </div>
       </div>
       <div class="large-6 medium-6 columns">
         <div class="error_wrap">
-          <input id="Field1" class="field text medium" name="Field1" data-ng-model="callForm.Field1"
+          <input id="Field1" class="field text medium" name="Field1" ng-model="callForm.Field1"
                  tabindex="1" required
                  value="رقم هاتفك"
                  minLength="7"
                  maxlength="13"
                  type="text"
                  placeholder="0000000000"
-                 data-ng-minlength="7"
-                 data-ng-maxlength="13"
-                 data-ng-pattern="phonePat"
-                 data-ng-class="{error: form.Field1.$error.required || !form.Field1.$valid}"
-                 data-ng-focus="checkDefaults(form.Field1.$name)"
-                 data-ng-blur="checkEntered(form.Field1.$name)"
+                 ng-minlength="7"
+                 ng-maxlength="13"
+                 ng-pattern="phonePat"
+                 ng-class="{error: form.Field1.$error.required || !form.Field1.$valid}"
+                 ng-focus="checkDefaults(form.Field1.$name)"
+                 ng-blur="checkEntered(form.Field1.$name)"
               />
 
           <div class="error_placeholder">
               <span class="error error_label"
-                    data-ng-show="!form.Field1.$pristine && form.Field1.$error.required">فضلاً أدخل رقم هاتفك هنا </span>
-              <span class="error error_label" data-ng-show="!form.Field1.$valid && !form.Field1.$error.required">
+                    ng-show="!form.Field1.$pristine && form.Field1.$error.required">فضلاً أدخل رقم هاتفك هنا </span>
+              <span class="error error_label" ng-show="!form.Field1.$valid && !form.Field1.$error.required">
               فضلاً ادخل رقم هاتفك هنا لنتصل بك </span>
           </div>
         </div>
       </div>
       <div class="large-12 column">
         <button class="left round submit button" id="saveForm" name="saveForm" type="button"
-                data-ng-disabled="form.$error.required || form.Field3.$pristine || form.Field1.$pristine || !form.$valid || noResend" data-ng-click="checkForm()" >
+                ng-disabled="form.$error.required || form.Field3.$pristine || form.Field1.$pristine || !form.$valid || noResend" ng-click="checkForm()" >
           اتصل بي
         </button>
 
         <div class="clear"></div>
-        <div data-alert class="alert-box success radius" data-ng-show="sendSuccess">
+        <div data-alert class="alert-box success radius" ng-show="sendSuccess">
           ! شكراً لتواصلك معنا. سوف يتصل بك خدمة العملاء في أقرب وقت ممكن لمساعدتك
           <a href="#" class="close" >&times;</a>
         </div>
 
-        <div data-alert class="alert-box warning radius" data-ng-show="sendError">
+        <div data-alert class="alert-box warning radius" ng-show="sendError">
           يوجد لديك خطاء فضلاً تأكد من المعلومات المدخلة وحاول مرةاخرى <a href="mailto:info@jetthoughts.com">info@jetthoughts.com</a>
           <a href="#" class="close" >&times;</a>
         </div>
@@ -73,8 +73,8 @@
     </div>
   </div>
   <div class="hide">
-    <textarea name="comment" id="comment" rows="1" cols="1" data-ng-model="callForm.comment"></textarea>
+    <textarea name="comment" id="comment" rows="1" cols="1" ng-model="callForm.comment"></textarea>
     <input type="hidden" id="idstamp" name="idstamp"
-           value="9dEE38FnE/bKQEDjFp3OJfov8wcRTE2xjgD/QyJg8Wo=" data-ng-model="callForm.idstamp" />
+           value="9dEE38FnE/bKQEDjFp3OJfov8wcRTE2xjgD/QyJg8Wo=" ng-model="callForm.idstamp" />
   </div>
 </form>

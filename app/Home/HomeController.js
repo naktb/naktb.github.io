@@ -1,4 +1,8 @@
-function CallMeCtrl($scope, $http) {
+angular.module('naktbApp').controller('HomeController', ['$scope', '$route', function($scope, $route) {
+
+  $scope.formTemplateUrl = '/app/partials/callMeBackForm.html';
+
+
   $scope.spinner = false;
   $scope.phonePat = /^[0-9]+$/;
   $scope.formName = 'm1fj3yms1jn9uw1';
@@ -39,22 +43,22 @@ function CallMeCtrl($scope, $http) {
   };
 
 
-  $scope.postCallMeForm = function () {
-    $scope.spinner = true;
-    $scope.noResend = true;
-    return $http.post('http://api.naktb.com/index.php?functionName=submitForm&formName=' + $scope.formName, $scope.callForm)
-        .success(function (data, status, headers, config) {
-          $scope.spinner = false;
-          if (status === 200) {
-            $scope.sendSuccess = true;
-          } else {
-            $scope.sendError = true;
-          }
-        })
-        .error(function (data, status, headers, config) {
-          $scope.spinner = false;
-          $scope.sendError = true;
-        });
-  };
+  //$scope.postCallMeForm = function () {
+  //  $scope.spinner = true;
+  //  $scope.noResend = true;
+  //  return $http.post('http://api.naktb.com/index.php?functionName=submitForm&formName=' + $scope.formName, $scope.callForm)
+  //      .success(function (data, status, headers, config) {
+  //        $scope.spinner = false;
+  //        if (status === 200) {
+  //          $scope.sendSuccess = true;
+  //        } else {
+  //          $scope.sendError = true;
+  //        }
+  //      })
+  //      .error(function (data, status, headers, config) {
+  //        $scope.spinner = false;
+  //        $scope.sendError = true;
+  //      });
+  //};
 
-};
+}]);
