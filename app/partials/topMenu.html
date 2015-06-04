@@ -1,5 +1,5 @@
 <ul class="right top-menu" ng-repeat="menu in menuItems">
-  <li ng-class="active: menu.slug == page"><a href="{{menu.url}}" class="button">{{menu.title}}</a></li>
+  <li ng-menu-highlight="{{menu.slug}}"><a href="{{menu.url}}" class="button">{{menu.title}}</a></li>
 </ul>
   <!--<li><a href="____who.html" class="button">من نحن</a></li>-->
   <!--<li><a href="service.html" class="button">خدماتنا</a></li>-->

@@ -1,5 +1,5 @@
 angular.module('naktbApp.partials')
-  .controller('TopMenuController', ['$scope','$route', '$routeParams', function($scope, $route, $routeParams) {
+  .controller('TopMenuController', ['$scope', '$rootScope', '$route', '$routeParams', function($scope, $rootScope, $route, $routeParams) {
       $scope.menuItems = [
         {
           url: 'who.html',
@@ -22,6 +22,8 @@ angular.module('naktbApp.partials')
           slug: 'service'
         }
       ];
+
+      console.log($rootScope);
 
 
     }]);

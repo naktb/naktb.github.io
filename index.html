@@ -23,7 +23,6 @@
 
       <section class="top-bar-section">
         <div ng-include="topMenuUrl" ng-controller="TopMenuController"></div>
-
       </section>
     </nav>
 
@@ -35,6 +34,7 @@
     <pre>$route.current.params = {{$route.current.params}}</pre>
     <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
     <pre>$routeParams = {{$routeParams}}</pre>
+    <pre>$rootScope = {{$rootScope}}</pre>
 
     <div class="push"></div>
   </div>
@@ -53,12 +53,16 @@
   <!--<script src="/bower_components/angular-resource/angular-resource.js"></script>-->
   <script src="/app/app.js"></script>
   <script src="/app/main.js"></script>
+
   <script src="/app/services/formHandler.js"></script>
+
+  <script src="/app/directives/menuHighlight.js"></script>
 
   <script src="/app/partials/CallMeBackController.js"></script>
   <script src="/app/partials/TopMenuController.js"></script>
 
   <script src="/app/Home/HomeController.js"></script>
+  <script src="/app/Service/ServiceController.js"></script>
 
   <script src="/app/config/ifConfig.js"></script>
   <script src="/bower_components/jquery/jquery.min.js"></script>
