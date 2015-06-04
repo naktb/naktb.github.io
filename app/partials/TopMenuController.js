@@ -23,7 +23,7 @@ angular.module('naktbApp.partials')
         }
       ];
 
-      console.log($rootScope);
+      //console.log($rootScope);
 
 
     }]);

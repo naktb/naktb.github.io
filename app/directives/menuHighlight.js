@@ -4,11 +4,19 @@ angular.module('naktbApp.directives')
         restrict: 'A',
         //require: '',
         link: function (scope, element, attr) {
-          console.log(scope)
+          //console.log(scope)
           console.log(element)
-          console.log(attr)
+          //console.log(attr)
           console.count('menus')
-          scope.w
+          scope.$watch('page', function(){
+            if (scope.menu.slug === $rootScope.page) {
+              element.addClass('active');
+            } else {
+              element.removeClass('active');
+            }
+            console.count('$rootScope');
+            console.log($rootScope);
+          })
         }
       }
     });
