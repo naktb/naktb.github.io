@@ -26,6 +26,31 @@ angular.module('naktbApp',
             controller: 'ServiceController',
             page: 'service'
           })
+          .when('/price.html', {
+            templateUrl: '/app/Price/_price.html',
+            controller: 'PriceController',
+            page: 'price'
+          })
+          .when('/contact.html', {
+            templateUrl: '/app/Contact/_contact.html',
+            controller: 'ContactController',
+            page: 'contact'
+          })
+          .when('/who.html', {
+            templateUrl: '/app/WhoWeAre/_whoWeAre.html',
+            controller: 'WhoWeAreController',
+            page: 'whoWeAre'
+          })
+          .when('/terms.html', {
+            templateUrl: '/app/Terms/_terms.html',
+            controller: 'TermsController',
+            page: 'terms'
+          })
+          .when('/return_policy.html', {
+            templateUrl: '/app/ReturnPolicy/_returnPolicy.html',
+            controller: 'ReturnPolicyController',
+            page: 'returnPolicy'
+          })
           .otherwise({
             templateUrl: '/app/Home/_home.html',
             controllerName: 'MainController',

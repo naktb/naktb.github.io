@@ -14,7 +14,7 @@ angular.module('naktbApp.partials')
         {
           url: 'price.html',
           title: 'Prices',
-          slug: 'prices'
+          slug: 'price'
         },
         {
           url: 'service.html',
