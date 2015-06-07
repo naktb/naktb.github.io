@@ -1,4 +1,20 @@
 module.exports = function(grunt) {
+
+  var assets = {
+    js: {
+      "vendor": [
+          'vendors/angular/angular.min.js',
+          'vendors/angular-route/angular-route.min.js',
+          'vendors/jquery/jquery.min.js',
+          'vendors/foundation/js/foundation.min.js',
+          'vendors/fastclick/lib/fastclick.js'
+      ],
+      "app": [
+          'app/**/*.js'
+      ]
+    }
+  };
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -58,10 +74,10 @@ module.exports = function(grunt) {
           relative: true,
           scripts: {
             bundle: [
-              './app/**/*.js',
-              '!**/main.js',
+              assets.js.vendor,
+              assets.js.app,
             ],
-            main: '<%= fixturesPath %>/scripts/main.js'
+            main: '<%= fixturesPath %>/js/app.min.js'
           },
           styles: {
             bundle: [
@@ -85,6 +101,19 @@ module.exports = function(grunt) {
           },
         }
       }
+    },
+
+    uglify: {
+      options: {
+        mangle: {
+          //except: ['jQuery']
+        }
+      },
+      my_target: {
+        files: {
+            'js/app.min.js': [assets.js.app]
+        }
+      }
     }
 
   });
@@ -93,6 +122,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-html-build');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('build', ['sass']);
   grunt.registerTask('default', ['browserSync','watch']);
