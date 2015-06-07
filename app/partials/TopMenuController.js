@@ -3,23 +3,23 @@ angular.module('naktbApp.partials')
       $scope.menuItems = [
         {
           url: 'who.html',
-          title: 'Who',
+          title: 'من نحن',
           slug: 'whoWeAre'
         },
         {
-          url: 'contact.html',
-          title: 'Contact',
-          slug: 'contact'
+          url: 'service.html',
+          title: 'خدماتنا',
+          slug: 'service'
         },
         {
           url: 'price.html',
-          title: 'Prices',
+          title: 'الأسعار',
           slug: 'price'
         },
         {
-          url: 'service.html',
-          title: 'Service',
-          slug: 'service'
+          url: 'contact.html',
+          title: 'اطلب',
+          slug: 'contact'
         }
       ];
 

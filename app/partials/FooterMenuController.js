@@ -3,12 +3,12 @@ angular.module('naktbApp.partials')
       $scope.menuItems = [
         {
           url: 'return_policy.html',
-          title: 'Return Policy',
+          title: 'سياسة الإسترجاع',
           slug: 'returnPolicy'
         },
         {
           url: 'terms.html',
-          title: 'Terms&Conditions',
+          title: 'الشروط والاحكام',
           slug: 'terms'
         }
       ];
