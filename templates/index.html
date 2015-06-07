@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="naktbApp">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نَــكْــتِّــب | {{pageTitle}}</title>
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+  <script src="bower_components/modernizr/modernizr.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>-->
+</head>
+<body class="home03" ng-controller="MainController">
+  <div class="wrapper">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1 class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="نَــكْــتِّــب" width="46" height="46" /><span class="slogan"> نَــكْــتِّــب</span></a>
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href=""><span>نَــكْــتِّــب</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <div ng-include="topMenuUrl" ng-controller="TopMenuController"></div>
+      </section>
+    </nav>
+
+
+    <div ng-view></div>
+
+    <div class="push"></div>
+  </div>
+
+
+  <footer class="footer" ng-include="footerMenuUrl" ng-controller="FooterMenuController">
+  </footer>
+
+  <!-- build:script bundle-->
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/app/app.js"></script>
+  <script src="/app/main.js"></script>
+
+  <script src="/app/services/formHandler.js"></script>
+
+  <script src="/app/directives/menuHighlight.js"></script>
+
+  <script src="/app/partials/CallMeBackController.js"></script>
+  <script src="/app/partials/TopMenuController.js"></script>
+  <script src="/app/partials/FooterMenuController.js"></script>
+
+  <script src="/app/Home/HomeController.js"></script>
+  <script src="/app/Service/ServiceController.js"></script>
+  <script src="/app/Price/PriceController.js"></script>
+  <script src="/app/Contact/ContactController.js"></script>
+  <script src="/app/WhoWeAre/WhoWeAreController.js"></script>
+  <script src="/app/ReturnPolicy/ReturnPolicyController.js"></script>
+  <script src="/app/Terms/TermsController.js"></script>
+
+  <script src="/app/config/ifConfig.js"></script>
+  <script src="/bower_components/jquery/jquery.min.js"></script>
+  <script src="/bower_components/foundation/js/foundation.min.js"></script>
+  <!-- /build -->
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

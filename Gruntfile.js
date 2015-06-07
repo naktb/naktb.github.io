@@ -47,19 +47,18 @@ module.exports = function(grunt) {
       }
     },
 
-    fixturesPath: "_site",
+    fixturesPath: "../",
 
     htmlbuild: {
       dist: {
-        src: 'index.html',
-        dest: '/',
+        src: 'templates/index.html',
+        dest: '_site',
         options: {
           beautify: true,
-          prefix: '//some-cdn',
           relative: true,
           scripts: {
             bundle: [
-              '<%= fixturesPath %>/scripts/*.js',
+              './app/**/*.js',
               '!**/main.js',
             ],
             main: '<%= fixturesPath %>/scripts/main.js'
@@ -93,6 +92,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-html-build');
 
   grunt.registerTask('build', ['sass']);
   grunt.registerTask('default', ['browserSync','watch']);
