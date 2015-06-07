@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نَــكْــتِّــب | Welcome</title>
+  <title>نَــكْــتِّــب | {{pageTitle}}</title>
   <link rel="stylesheet" href="css/app.css" />
   <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
   <script src="bower_components/modernizr/modernizr.js"></script>
@@ -29,22 +29,11 @@
 
     <div ng-view></div>
 
-    <pre>$location.path() = {{$location.path()}}</pre>
-    <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
-    <pre>$route.current.params = {{$route.current.params}}</pre>
-    <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
-    <pre>$routeParams = {{$routeParams}}</pre>
-    <pre>$rootScope = {{$rootScope}}</pre>
-
     <div class="push"></div>
   </div>
 
 
-  <footer class="footer">
-    <div class="footer_nav">
-      <a class="footer_link" href="return_policy.html">سياسة الإسترجاع</a> <a class="footer_link" href="terms.html">الشروط
-                                                                                                                    والاحكام</a>
-    </div>
+  <footer class="footer" ng-include="footerMenuUrl" ng-controller="FooterMenuController">
   </footer>
 
 
@@ -60,6 +49,7 @@
 
   <script src="/app/partials/CallMeBackController.js"></script>
   <script src="/app/partials/TopMenuController.js"></script>
+  <script src="/app/partials/FooterMenuController.js"></script>
 
   <script src="/app/Home/HomeController.js"></script>
   <script src="/app/Service/ServiceController.js"></script>
@@ -72,7 +62,6 @@
   <script src="/app/config/ifConfig.js"></script>
   <script src="/bower_components/jquery/jquery.min.js"></script>
   <script src="/bower_components/foundation/js/foundation.min.js"></script>
-  <script src="/bower_components/foundation/js/foundation/foundation.offcanvas.js"></script>
   <script>
     $(document).foundation();
   </script>
