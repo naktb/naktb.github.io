@@ -12,34 +12,30 @@ angular.module('naktbApp.partials')
         'Field3': 'اسم'
       };
 
-      $scope.sendSuccess = false;
-      $scope.sendError = false;
       $scope.noResend = false;
 
-      function formSent() {
-        console.log('Form has been sent');
+      function formSentCb(status) {
+        formHandler.formMessage($scope, status);
       }
 
-      function formFailed() {
-        console.warn('smth wrong with form');
-      }
+      $scope.closeMessageBox = function() {
+        $scope.formMessage = null;
+      };
+
 
       $scope.checkForm = function () {
+        $scope.spinner = true;
         if (!$scope.noResend) {
-          formHandler.sendForm({name:$scope.formName, data: $scope.callForm}, formSent, formFailed);
+          formHandler.sendForm({name:$scope.formName, data: $scope.callForm}, formSentCb);
         }
       };
 
       $scope.checkDefaults = function (inputName) {
-        if ($scope.callForm[inputName] == $scope.callForm.defaults[inputName]) {
-          $scope.callForm[inputName] = '';
-        }
+        formHandler.checkDefault(this.callMeBackForm, inputName);
       };
 
       $scope.checkEntered = function (inputName) {
-        if ($scope.callForm[inputName] == '') {
-          $scope.callForm[inputName] = $scope.callForm.defaults[inputName];
-        }
+        formHandler.checkEntered(this.callMeBackForm, inputName);
       };
 
 

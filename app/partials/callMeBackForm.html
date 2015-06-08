@@ -1,4 +1,4 @@
-<form id="callForm" name="form" class="wufoo form topLabel page" autocomplete="off"
+<form id="callForm" name="callMeBackForm" class="wufoo form topLabel page" autocomplete="off"
       enctype="multipart/form-data"
       method="post" novalidate
       ng-controller="CallMeBackController">
@@ -16,15 +16,15 @@
                  tabindex="2"
                  required
                  placeholder="الإســـــم"
-                 ng-class="{error: form.Field3.$error.required }"
-                 ng-focus="checkDefaults(form.Field3.$name)"
-                 ng-blur="checkEntered(form.Field3.$name)"Mo
+                 ng-class="{error: callMeBackForm.Field3.$error.required }"
+                 ng-focus="checkDefaults(callMeBackForm.Field3.$name)"
+                 ng-blur="checkEntered(callMeBackForm.Field3.$name)"
               />
 
           <div class="error_placeholder">
 
               <span class="error error_label"
-                    ng-show="!form.Field3.$pristine && form.Field3.$error.required">من فضلك إكتب إسمك </span>
+                    ng-show="!callMeBackForm.Field3.$pristine && callMeBackForm.Field3.$error.required">من فضلك إكتب إسمك </span>
           </div>
         </div>
       </div>
@@ -40,35 +40,31 @@
                  ng-minlength="7"
                  ng-maxlength="13"
                  ng-pattern="phonePat"
-                 ng-class="{error: form.Field1.$error.required || !form.Field1.$valid}"
-                 ng-focus="checkDefaults(form.Field1.$name)"
-                 ng-blur="checkEntered(form.Field1.$name)"
+                 ng-class="{error: callMeBackForm.Field1.$error.required || !callMeBackForm.Field1.$valid}"
+                 ng-focus="checkDefaults(callMeBackForm.Field1.$name)"
+                 ng-blur="checkEntered(callMeBackForm.Field1.$name)"
               />
 
           <div class="error_placeholder">
               <span class="error error_label"
-                    ng-show="!form.Field1.$pristine && form.Field1.$error.required">فضلاً أدخل رقم هاتفك هنا </span>
-              <span class="error error_label" ng-show="!form.Field1.$valid && !form.Field1.$error.required">
+                    ng-show="!callMeBackForm.Field1.$pristine && callMeBackForm.Field1.$error.required">فضلاً أدخل رقم هاتفك هنا </span>
+              <span class="error error_label" ng-show="!callMeBackForm.Field1.$valid && !callMeBackForm.Field1.$error.required">
               فضلاً ادخل رقم هاتفك هنا لنتصل بك </span>
           </div>
         </div>
       </div>
       <div class="large-12 column">
         <button class="left round submit button" id="saveForm" name="saveForm" type="button"
-                ng-disabled="form.$error.required || form.Field3.$pristine || form.Field1.$pristine || !form.$valid || noResend" ng-click="checkForm()" >
+                ng-disabled="callMeBackForm.$error.required || callMeBackForm.Field3.$pristine || callMeBackForm.Field1.$pristine || !callMeBackForm.$valid || noResend" ng-click="checkForm()" >
           اتصل بي
         </button>
 
         <div class="clear"></div>
-        <div data-alert class="alert-box success radius" ng-show="sendSuccess">
-          ! شكراً لتواصلك معنا. سوف يتصل بك خدمة العملاء في أقرب وقت ممكن لمساعدتك
-          <a href="#" class="close" >&times;</a>
+        <div data-alert class="alert-box radius" ng-class="{alert: formError, success: !formError}" ng-show="formMessage">
+          {{formMessage}}
+          <a href="#" class="close" ng-click="closeMessageBox()">&times;</a>
         </div>
 
-        <div data-alert class="alert-box warning radius" ng-show="sendError">
-          يوجد لديك خطاء فضلاً تأكد من المعلومات المدخلة وحاول مرةاخرى <a href="mailto:info@jetthoughts.com">info@jetthoughts.com</a>
-          <a href="#" class="close" >&times;</a>
-        </div>
       </div>
     </div>
   </div>

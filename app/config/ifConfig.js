@@ -4,6 +4,19 @@ var ifConfig =
   "api": {
     //"url":"http://api.naktb.com/index.php"
   },
+
+  "messages": {
+    "formFailed": " يوجد لديك خطاء فضلاً تأكد من المعلومات المدخلة وحاول مرةاخرى contact@naktb.com",
+    "formSuccess": "! شكراً لتواصلك معنا. سوف يتصل بك خدمة العملاء في أقرب وقت ممكن لمساعدتك"
+  },
+
+  "callMeBackForm": {
+    "defaults": {
+      'Field1': '0000000000',
+      'Field3': 'اسم'
+    }
+  },
+
   "orderForm": {
     "academicLevel": [
       "General",
