@@ -1,13 +1,15 @@
-angular.module('naktbApp.services', []);
 angular.module('naktbApp.main', []);
-angular.module('naktbApp.partials', []);
+angular.module('naktbApp.services', []);
+angular.module('naktbApp.helpers', []);
 angular.module('naktbApp.directives', []);
+angular.module('naktbApp.partials', []);
 
 angular.module('naktbApp',
     [
       'ngRoute',
       'naktbApp.main',
       'naktbApp.services',
+      'naktbApp.helpers',
       'naktbApp.directives',
       'naktbApp.partials'
 
@@ -17,6 +19,12 @@ angular.module('naktbApp',
     .config(function ($routeProvider, $locationProvider) {
       $routeProvider
           .when('/', {
+            templateUrl: '/app/Home/_home.html',
+            controller: 'HomeController',
+            pageTitle: 'Welcome',
+            page: 'homePage'
+          })
+          .when('/index.html', {
             templateUrl: '/app/Home/_home.html',
             controller: 'HomeController',
             pageTitle: 'Welcome',

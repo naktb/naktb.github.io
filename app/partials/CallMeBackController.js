@@ -1,6 +1,5 @@
 angular.module('naktbApp.partials')
-    .controller('CallMeBackController', ['$scope', '$route', function($scope, $route) {
-
+    .controller('CallMeBackController', ['$scope', '$route', 'formHandler', function($scope, $route, formHandler) {
 
       $scope.spinner = false;
       $scope.phonePat = /^[0-9]+$/;
@@ -17,9 +16,17 @@ angular.module('naktbApp.partials')
       $scope.sendError = false;
       $scope.noResend = false;
 
+      function formSent() {
+        console.log('Form has been sent');
+      }
+
+      function formFailed() {
+        console.warn('smth wrong with form');
+      }
+
       $scope.checkForm = function () {
         if (!$scope.noResend) {
-          $scope.postCallMeForm();
+          formHandler.sendForm({name:$scope.formName, data: $scope.callForm}, formSent, formFailed);
         }
       };
 
