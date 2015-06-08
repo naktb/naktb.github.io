@@ -1,6 +1,9 @@
 var ifConfig =
 
 {
+  "api": {
+    //"url":"http://api.naktb.com/index.php"
+  },
   "orderForm": {
     "academicLevel": [
       "General",
