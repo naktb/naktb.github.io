@@ -5,7 +5,7 @@ module.exports = function(grunt) {
       "vendor": [
           'vendors/angular/angular.min.js',
           'vendors/angular-route/angular-route.min.js',
-          'vendors/jquery/jquery.min.js',
+          'vendors/jquery/dist/jquery.min.js',
           'vendors/foundation/js/foundation.min.js',
           'vendors/fastclick/lib/fastclick.js'
       ],
@@ -58,24 +58,25 @@ module.exports = function(grunt) {
       options: {
         watchTask: true,
         server: {
-          baseDir: "./_site"
+          baseDir: "./"
         }
       }
     },
 
-    fixturesPath: "../",
+    fixturesPath: "app",
 
     htmlbuild: {
       dist: {
         src: 'templates/index.html',
-        dest: '_site',
+        dest: './',
         options: {
           beautify: true,
           relative: true,
           scripts: {
+            app: 'js/app.min.js',
             bundle: [
               assets.js.vendor,
-              assets.js.app,
+              assets.js.app
             ],
             main: '<%= fixturesPath %>/js/app.min.js'
           },
@@ -87,8 +88,8 @@ module.exports = function(grunt) {
             test: '<%= fixturesPath %>/css/inline.css'
           },
           sections: {
-            views: '<%= fixturesPath %>/views/**/*.html',
-            templates: '<%= fixturesPath %>/templates/**/*.html',
+            views: ['<%= fixturesPath %>/Home/*.html', '<%= fixturesPath %>/Price/*.html'],
+            templates: '/templates/pages/*.html',
             layout: {
               header: '<%= fixturesPath %>/layout/header.html',
               footer: '<%= fixturesPath %>/layout/footer.html'
@@ -111,7 +112,8 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-            'js/app.min.js': [assets.js.app]
+            'js/app.min.js': [assets.js.vendor, assets.js.app],
+            'js/vendors.min.js': assets.js.vendor
         }
       }
     }
