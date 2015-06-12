@@ -10,7 +10,29 @@ module.exports = function(grunt) {
           'vendors/fastclick/lib/fastclick.js'
       ],
       "app": [
-          'app/**/*.js'
+        "app/config/ifConfig.js",
+
+        "app/app.js",
+        "app/main.js",
+
+        "app/Contact/ContactController.js",
+        "app/Home/HomeController.js",
+        "app/Price/PriceController.js",
+        "app/ReturnPolicy/ReturnPolicyController.js",
+        "app/Service/ServiceController.js",
+        "app/Terms/TermsController.js",
+        "app/WhoWeAre/WhoWeAreController.js",
+
+        "app/directives/menuHighlight.js",
+
+        "app/services/formHandler.js",
+
+        "app/helpers/common.js",
+
+        "app/partials/CallMeBackController.js",
+        "app/partials/FooterMenuController.js",
+        "app/partials/TopMenuController.js",
+
       ]
     }
   };
@@ -106,14 +128,21 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        mangle: {
-          //except: ['jQuery']
-        }
+        mangle: false,
+        beautify: true
       },
       my_target: {
         files: {
-            'js/app.min.js': [assets.js.vendor, assets.js.app],
             'js/vendors.min.js': assets.js.vendor
+        }
+      }
+    },
+
+    ngAnnotate: {
+      options: {},
+      app: {
+        files: {
+          'js/app.min.js': assets.js.app
         }
       }
     }
@@ -125,6 +154,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-html-build');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-ng-annotate');
 
   grunt.registerTask('build', ['sass']);
   grunt.registerTask('default', ['browserSync','watch']);

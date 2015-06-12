@@ -1,0 +1,76 @@
+<form id="callForm" name="callMeBackForm" class="wufoo form topLabel page" autocomplete="off"
+      enctype="multipart/form-data"
+      method="post" novalidate
+      ng-controller="CallMeBackController">
+  <div class="spinner_wrap" ng-show="spinner">
+    <img class="spinner" src="img/spinner.gif" alt="" width="16" height="16 " />
+  </div>
+  <div class="form_panel request_form">
+    <div class="row">
+      <div class="large-6 medium-6 columns">
+        <div class="error_wrap">
+          <input id="Field3" name="Field3" ng-model="callForm.Field3" type="text"
+                 class="field text medium"
+                 value=""
+                 maxlength="255"
+                 tabindex="2"
+                 required
+                 placeholder="الإســـــم"
+                 ng-class="{error: callMeBackForm.Field3.$error.required }"
+                 ng-focus="checkDefaults(callMeBackForm.Field3.$name)"
+                 ng-blur="checkEntered(callMeBackForm.Field3.$name)"
+              />
+
+          <div class="error_placeholder">
+
+              <span class="error error_label"
+                    ng-show="!callMeBackForm.Field3.$pristine && callMeBackForm.Field3.$error.required">من فضلك إكتب إسمك </span>
+          </div>
+        </div>
+      </div>
+      <div class="large-6 medium-6 columns">
+        <div class="error_wrap">
+          <input id="Field1" class="field text medium" name="Field1" ng-model="callForm.Field1"
+                 tabindex="1" required
+                 value="رقم هاتفك"
+                 minLength="7"
+                 maxlength="13"
+                 type="text"
+                 placeholder="0000000000"
+                 ng-minlength="7"
+                 ng-maxlength="13"
+                 ng-pattern="phonePat"
+                 ng-class="{error: callMeBackForm.Field1.$error.required || !callMeBackForm.Field1.$valid}"
+                 ng-focus="checkDefaults(callMeBackForm.Field1.$name)"
+                 ng-blur="checkEntered(callMeBackForm.Field1.$name)"
+              />
+
+          <div class="error_placeholder">
+              <span class="error error_label"
+                    ng-show="!callMeBackForm.Field1.$pristine && callMeBackForm.Field1.$error.required">فضلاً أدخل رقم هاتفك هنا </span>
+              <span class="error error_label" ng-show="!callMeBackForm.Field1.$valid && !callMeBackForm.Field1.$error.required">
+              فضلاً ادخل رقم هاتفك هنا لنتصل بك </span>
+          </div>
+        </div>
+      </div>
+      <div class="large-12 column">
+        <button class="left round submit button" id="saveForm" name="saveForm" type="button"
+                ng-disabled="callMeBackForm.$error.required || callMeBackForm.Field3.$pristine || callMeBackForm.Field1.$pristine || !callMeBackForm.$valid || noResend" ng-click="checkForm()" >
+          اتصل بي
+        </button>
+
+        <div class="clear"></div>
+        <div data-alert class="alert-box radius" ng-class="{alert: formError, success: !formError}" ng-show="formMessage">
+          {{formMessage}}
+          <a href="#" class="close" ng-click="closeMessageBox()">&times;</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="hide">
+    <textarea name="comment" id="comment" rows="1" cols="1" ng-model="callForm.comment"></textarea>
+    <input type="hidden" id="idstamp" name="idstamp"
+           value="9dEE38FnE/bKQEDjFp3OJfov8wcRTE2xjgD/QyJg8Wo=" ng-model="callForm.idstamp" />
+  </div>
+</form>
