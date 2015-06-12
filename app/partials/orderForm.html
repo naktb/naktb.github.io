@@ -1,4 +1,4 @@
-<form id="callForm" name="orderForm" class="wufoo form topLabel page" autocomplete="off"
+<form id="orderForm" name="orderForm" class="wufoo form topLabel page" autocomplete="off"
       enctype="multipart/form-data"
       method="post" novalidate
       ng-controller="OrderFormController">
@@ -13,54 +13,46 @@
       <div class="small-10 small-centered column">
 
         <div class="error_wrap">
-          <input id="Field3" name="Field3" ng-model="callForm.Field3" type="text"
-                 class="field text medium"
-                 value=""
-                 maxlength="255"
-                 tabindex="2"
-                 required
-                 placeholder="الإســـــم"
-                 ng-class="{error: callMeBackForm.Field3.$error.required }"
-                 ng-focus="checkDefaults(callMeBackForm.Field3.$name)"
-                 ng-blur="checkEntered(callMeBackForm.Field3.$name)"
-              />
+          <input id="{{formConfig.academicLevel.name}}_0" name="{{formConfig.academicLevel.name}}" ng-model="orderForm[formConfig.academicLevel.name]" type="radio" value="{{formConfig.academicLevel.value[0]}}" />
+          <label for="{{formConfig.academicLevel.name}}_0">{{formConfig.academicLevel.value[0]}}</label>
+
+          <input id="{{formConfig.academicLevel.name}}_1" name="{{formConfig.academicLevel.name}}" ng-model="orderForm[formConfig.academicLevel.name]" type="radio" value="{{formConfig.academicLevel.value[1]}}" />
+          <label for="{{formConfig.academicLevel.name}}_1">{{formConfig.academicLevel.value[1]}}</label>
+
+
+          <span ng-model="orderForm[formConfig.academicLevel.name]" class="button tiny"
+                ng-class="{disabled: orderForm[formConfig.academicLevel.name] == formConfig.academicLevel.value[0] }"
+                ng-click="orderForm[formConfig.academicLevel.name] = formConfig.academicLevel.value[0]">
+            {{formConfig.academicLevel.value[0]}}
+          </span>
+          <span ng-model="orderForm[formConfig.academicLevel.name]" class="button tiny"
+                ng-class="{disabled: orderForm[formConfig.academicLevel.name] == formConfig.academicLevel.value[1] }"
+                ng-click="orderForm[formConfig.academicLevel.name] = formConfig.academicLevel.value[1]">
+            {{formConfig.academicLevel.value[1]}}
+          </span>
+
+
 
           <div class="error_placeholder">
 
               <span class="error error_label"
-                    ng-show="!callMeBackForm.Field3.$pristine && callMeBackForm.Field3.$error.required">من فضلك إكتب إسمك </span>
+                    ng-show="!this.$pristine && this.$error.required">some error</span>
           </div>
         </div>
-      </div>
 
-      <div class="large-6 medium-6 columns">
         <div class="error_wrap">
-          <input id="Field1" class="field text medium" name="Field1" ng-model="callForm.Field1"
-                 tabindex="1" required
-                 value="رقم هاتفك"
-                 minLength="7"
-                 maxlength="13"
-                 type="text"
-                 placeholder="0000000000"
-                 ng-minlength="7"
-                 ng-maxlength="13"
-                 ng-pattern="phonePat"
-                 ng-class="{error: callMeBackForm.Field1.$error.required || !callMeBackForm.Field1.$valid}"
-                 ng-focus="checkDefaults(callMeBackForm.Field1.$name)"
-                 ng-blur="checkEntered(callMeBackForm.Field1.$name)"
-              />
+          <input id="{{formConfig.academicLevel.name}}" name="{{formConfig.academicLevel.name}}" ng-model="orderForm[formConfig.academicLevel.name]" type="text" class="field text medium" />
 
           <div class="error_placeholder">
+
               <span class="error error_label"
-                    ng-show="!callMeBackForm.Field1.$pristine && callMeBackForm.Field1.$error.required">فضلاً أدخل رقم هاتفك هنا </span>
-              <span class="error error_label" ng-show="!callMeBackForm.Field1.$valid && !callMeBackForm.Field1.$error.required">
-              فضلاً ادخل رقم هاتفك هنا لنتصل بك </span>
+                    ng-show="!this.$pristine && this.$error.required">some error</span>
           </div>
         </div>
       </div>
+
       <div class="large-12 column">
-        <button class="left round submit button" id="saveForm" name="saveForm" type="button"
-                ng-disabled="callMeBackForm.$error.required || callMeBackForm.Field3.$pristine || callMeBackForm.Field1.$pristine || !callMeBackForm.$valid || noResend" ng-click="checkForm()" >
+        <button class="left round submit button" id="saveForm" name="saveForm" type="button" ng-click="checkForm()" >
           اتصل بي
         </button>
 

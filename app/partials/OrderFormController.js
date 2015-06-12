@@ -1,6 +1,7 @@
 angular.module('naktbApp.partials')
     .controller('OrderFormController', ['$scope', '$route', 'formHandler', function($scope, $route, formHandler) {
 
+      $scope.formConfig = ifConfig.orderForm;
       $scope.spinner = false;
       $scope.phonePat = /^[0-9]+$/;
       $scope.formName = ifConfig.orderForm.id;
@@ -39,6 +40,10 @@ angular.module('naktbApp.partials')
       $scope.clearForm = function () {
         $scope.callForm.Field3 = '';
         $scope.callForm.Field1 = '';
+      };
+
+      $scope.setModelValue = function (model, val) {
+        $scope[model] = val;
       };
 
     }]);
