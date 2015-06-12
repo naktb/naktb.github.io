@@ -32,6 +32,7 @@ module.exports = function(grunt) {
         "app/partials/CallMeBackController.js",
         "app/partials/FooterMenuController.js",
         "app/partials/TopMenuController.js",
+        "app/partials/OrderFormController.js",
 
       ]
     }
@@ -66,6 +67,11 @@ module.exports = function(grunt) {
       sass: {
         files: 'scss/**/*.scss',
         tasks: ['sass']
+      },
+
+      ngAnnotate: {
+        files: assets.js.app,
+        tasks: ['ngAnnotate']
       }
     },
 
@@ -74,6 +80,7 @@ module.exports = function(grunt) {
         src : [
           'css/app.css',
           '*.html',
+          'app/**/*.html',
           'js/*.js'
         ]
       },

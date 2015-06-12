@@ -1,13 +1,17 @@
-<form id="callForm" name="callMeBackForm" class="wufoo form topLabel page" autocomplete="off"
+<form id="callForm" name="orderForm" class="wufoo form topLabel page" autocomplete="off"
       enctype="multipart/form-data"
       method="post" novalidate
-      ng-controller="CallMeBackController">
+      ng-controller="OrderFormController">
+
   <div class="spinner_wrap" ng-show="spinner">
     <img class="spinner" src="img/spinner.gif" alt="" width="16" height="16 " />
   </div>
+
   <div class="form_panel request_form">
     <div class="row">
-      <div class="large-6 medium-6 columns">
+
+      <div class="small-10 small-centered column">
+
         <div class="error_wrap">
           <input id="Field3" name="Field3" ng-model="callForm.Field3" type="text"
                  class="field text medium"
@@ -28,6 +32,7 @@
           </div>
         </div>
       </div>
+
       <div class="large-6 medium-6 columns">
         <div class="error_wrap">
           <input id="Field1" class="field text medium" name="Field1" ng-model="callForm.Field1"

@@ -1,16 +1,12 @@
 angular.module('naktbApp.partials')
-    .controller('CallMeBackController', ['$scope', '$route', 'formHandler', function($scope, $route, formHandler) {
+    .controller('OrderFormController', ['$scope', '$route', 'formHandler', function($scope, $route, formHandler) {
 
       $scope.spinner = false;
       $scope.phonePat = /^[0-9]+$/;
-      $scope.formName = 'm1fj3yms1jn9uw1';
-      $scope.callForm = {};
-      $scope.callForm.idstamp = '9dEE38FnE/bKQEDjFp3OJfov8wcRTE2xjgD/QyJg8Wo=';
-      $scope.callForm.comment = '';
-      $scope.callForm.defaults = {
-        'Field1': '0000000000',
-        'Field3': 'اسم'
-      };
+      $scope.formName = ifConfig.orderForm.id;
+      $scope.orderForm = {};
+      $scope.orderForm.idstamp = ifConfig.orderForm.idStamp;
+      $scope.orderForm.comment = '';
 
       $scope.noResend = false;
 
@@ -25,10 +21,10 @@ angular.module('naktbApp.partials')
 
       $scope.checkForm = function () {
         $scope.spinner = true;
-        console.log($scope.callMeBackForm);
         if (!$scope.noResend) {
           formHandler.sendForm({name:$scope.formName, data: $scope.callForm}, formSentCb);
         }
+
       };
 
       $scope.checkDefaults = function (inputName) {

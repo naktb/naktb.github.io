@@ -2,4 +2,6 @@ angular.module('naktbApp').controller('ContactController', ['$scope', '$rootScop
 
   $rootScope.page = $route.current.page;
 
+  $scope.formTemplateUrl = '/app/partials/orderForm.html';
+
 }]);
