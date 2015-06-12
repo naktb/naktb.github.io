@@ -8,7 +8,7 @@ angular.module('naktbApp.partials')
       $scope.orderForm = {};
       $scope.orderForm.idstamp = ifConfig.orderForm.idStamp;
       $scope.orderForm.comment = '';
-      $scope.orderForm[ifConfig.orderForm.sources.name] = ifConfig.orderForm.sources.default;
+      //$scope.orderForm[ifConfig.orderForm.sources.name] = ifConfig.orderForm.sources.default;
 
       $scope.noResend = false;
 

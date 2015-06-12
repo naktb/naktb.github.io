@@ -12,123 +12,142 @@
 
       <div class="small-10 small-centered column">
 
-        <div class="error_wrap">
+        <!--<div class="error_wrap">-->
 
-          <label>{{formConfig.academicLevel.title}}</label>
+          <!--<label>{{formConfig.academicLevel.title}}</label>-->
 
-          <span ng-model="orderForm[formConfig.academicLevel.name]" class="button tiny round"
-                ng-class="{disabled: orderForm[formConfig.academicLevel.name] == formConfig.academicLevel.value[0] }"
-                ng-click="orderForm[formConfig.academicLevel.name] = formConfig.academicLevel.value[0]">
-            {{formConfig.academicLevel.value[0]}}
-          </span>
-          <span ng-model="orderForm[formConfig.academicLevel.name]" class="button tiny round"
-                ng-class="{disabled: orderForm[formConfig.academicLevel.name] == formConfig.academicLevel.value[1] }"
-                ng-click="orderForm[formConfig.academicLevel.name] = formConfig.academicLevel.value[1]">
-            {{formConfig.academicLevel.value[1]}}
-          </span>
+          <!--<span ng-model="orderForm[formConfig.academicLevel.name]" class="button tiny round"-->
+                <!--ng-class="{disabled: orderForm[formConfig.academicLevel.name] == formConfig.academicLevel.value[0] }"-->
+                <!--ng-click="orderForm[formConfig.academicLevel.name] = formConfig.academicLevel.value[0]">-->
+            <!--{{formConfig.academicLevel.value[0]}}-->
+          <!--</span>-->
+          <!--<span ng-model="orderForm[formConfig.academicLevel.name]" class="button tiny round"-->
+                <!--ng-class="{disabled: orderForm[formConfig.academicLevel.name] == formConfig.academicLevel.value[1] }"-->
+                <!--ng-click="orderForm[formConfig.academicLevel.name] = formConfig.academicLevel.value[1]">-->
+            <!--{{formConfig.academicLevel.value[1]}}-->
+          <!--</span>-->
 
 
 
-          <div class="error_placeholder">
+          <!--<div class="error_placeholder">-->
 
-              <span class="error error_label"
-                    ng-show="!this.$pristine && this.$error.required">some error</span>
+              <!--<span class="error error_label"-->
+                    <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+        <!--<div class="error_wrap">-->
+          <!--<label>{{formConfig.typeOfPaper.title}}</label>-->
+
+          <!--<select ng-options="o as o for o in formConfig.typeOfPaper.value"-->
+                  <!--ng-model="orderForm[formConfig.typeOfPaper.name]"-->
+                  <!--ng-required="true"-->
+                  <!--value="{{formConfig.typeOfPaper.default}}"-->
+                  <!--name="{{formConfig.typeOfPaper.name}}"-->
+                  <!--required>-->
+          <!--</select>-->
+
+
+          <!--<div class="error_placeholder">-->
+
+              <!--<span class="error error_label"-->
+                    <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="error_wrap">-->
+          <!--<label>{{formConfig.subjectOfDiscipline.title}}</label>-->
+
+          <!--<select ng-options="o as o for o in formConfig.subjectOfDiscipline.value"-->
+                  <!--ng-model="orderForm[formConfig.subjectOfDiscipline.name]"-->
+                  <!--ng-required="true"-->
+                  <!--value="{{formConfig.subjectOfDiscipline.default}}"-->
+                  <!--name="{{formConfig.subjectOfDiscipline.name}}"-->
+                  <!--required>-->
+          <!--</select>-->
+
+
+          <!--<div class="error_placeholder">-->
+
+              <!--<span class="error error_label"-->
+                    <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="error_wrap">-->
+          <!--<label>{{formConfig.topic.title}}</label>-->
+
+          <!--<input type="text"-->
+                 <!--ng-model="orderForm[formConfig.topic.name]"-->
+                 <!--value="{{formConfig.topic.default}}"-->
+                 <!--name="{{formConfig.topic.name}}" />-->
+
+
+          <!--<div class="error_placeholder">-->
+
+              <!--<span class="error error_label"-->
+                    <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="error_wrap">-->
+          <!--<label>{{formConfig.paperInstructions.title}}</label>-->
+
+          <!--<textarea type="text" ng-model="orderForm[formConfig.paperInstructions.name]"-->
+                    <!--value="{{formConfig.paperInstructions.default}}"-->
+                    <!--name="{{formConfig.paperInstructions.name}}"-->
+                    <!--required-->
+                    <!--ng-required="true">-->
+          <!--</textarea>-->
+
+
+          <!--<div class="error_placeholder">-->
+
+              <!--<span class="error error_label"-->
+                    <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="error_wrap">-->
+          <!--<label>{{formConfig.sources.title}}</label>-->
+
+          <!--<span ng-click="changeNumber(formConfig.sources.name, 1)">+</span>-->
+          <!--<input type="number"-->
+                 <!--ng-model="orderForm[formConfig.sources.name]"-->
+                 <!--min="0"-->
+                 <!--name="Field107"-->
+                 <!--value="0" />-->
+
+
+          <!--<del>{{orderForm[formConfig.sources.name]}}</del>-->
+
+
+          <!--<div class="error_placeholder">-->
+
+              <!--<span class="error error_label"-->
+                    <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+        <div class="input_wrap" ng-repeat="input in formConfig.controls">
+
+          <label for="input_{{input.name}}">{{input.title}}</label>
+
+          <div ng-if="input.type == 'number'">
+            <span ng-click="changeNumber(input.name,1)">+</span>
+            <input type="number"
+                   ng-model="orderForm[input.name]"
+                   name="{{input.name}}"
+                   id="input_{{input.name}}"
+                />
+            {{ input | json }}
+            <span ng-click="changeNumber(input.name,-1)">-</span>
           </div>
+
         </div>
 
-
-        <div class="error_wrap">
-          <label>{{formConfig.typeOfPaper.title}}</label>
-
-          <select ng-options="o as o for o in formConfig.typeOfPaper.value"
-                  ng-model="orderForm[formConfig.typeOfPaper.name]"
-                  ng-required="true"
-                  value="{{formConfig.typeOfPaper.default}}"
-                  name="{{formConfig.typeOfPaper.name}}"
-                  required>
-          </select>
-
-
-          <div class="error_placeholder">
-
-              <span class="error error_label"
-                    ng-show="!this.$pristine && this.$error.required">some error</span>
-          </div>
-        </div>
-
-        <div class="error_wrap">
-          <label>{{formConfig.subjectOfDiscipline.title}}</label>
-
-          <select ng-options="o as o for o in formConfig.subjectOfDiscipline.value"
-                  ng-model="orderForm[formConfig.subjectOfDiscipline.name]"
-                  ng-required="true"
-                  value="{{formConfig.subjectOfDiscipline.default}}"
-                  name="{{formConfig.subjectOfDiscipline.name}}"
-                  required>
-          </select>
-
-
-          <div class="error_placeholder">
-
-              <span class="error error_label"
-                    ng-show="!this.$pristine && this.$error.required">some error</span>
-          </div>
-        </div>
-
-        <div class="error_wrap">
-          <label>{{formConfig.topic.title}}</label>
-
-          <input type="text"
-                 ng-model="orderForm[formConfig.topic.name]"
-                 value="{{formConfig.topic.default}}"
-                 name="{{formConfig.topic.name}}" />
-
-
-          <div class="error_placeholder">
-
-              <span class="error error_label"
-                    ng-show="!this.$pristine && this.$error.required">some error</span>
-          </div>
-        </div>
-
-        <div class="error_wrap">
-          <label>{{formConfig.paperInstructions.title}}</label>
-
-          <textarea type="text" ng-model="orderForm[formConfig.paperInstructions.name]"
-                    value="{{formConfig.paperInstructions.default}}"
-                    name="{{formConfig.paperInstructions.name}}"
-                    required
-                    ng-required="true">
-          </textarea>
-
-
-          <div class="error_placeholder">
-
-              <span class="error error_label"
-                    ng-show="!this.$pristine && this.$error.required">some error</span>
-          </div>
-        </div>
-
-        <div class="error_wrap">
-          <label>{{formConfig.sources.title}}</label>
-
-          <span ng-click="changeNumber(formConfig.sources.name, 1)">+</span>
-          <input type="number"
-                 ng-model="orderForm[formConfig.sources.name]"
-                 min="0"
-                 name="Field107"
-                 value="0" />
-
-
-          <del>{{orderForm[formConfig.sources.name]}}</del>
-
-
-          <div class="error_placeholder">
-
-              <span class="error error_label"
-                    ng-show="!this.$pristine && this.$error.required">some error</span>
-          </div>
-        </div>
 
       </div>
 
