@@ -8,6 +8,7 @@ angular.module('naktbApp.partials')
       $scope.orderForm = {};
       $scope.orderForm.idstamp = ifConfig.orderForm.idStamp;
       $scope.orderForm.comment = '';
+      $scope.orderForm[ifConfig.orderForm.sources.name] = ifConfig.orderForm.sources.default;
 
       $scope.noResend = false;
 
@@ -42,8 +43,12 @@ angular.module('naktbApp.partials')
         $scope.callForm.Field1 = '';
       };
 
-      $scope.setModelValue = function (model, val) {
-        $scope[model] = val;
+
+      $scope.changeNumber = function(model, count) {
+        var currentValue = $scope.orderForm[model],
+            countValue = currentValue + count;
+        debugger;
+        return countValue < 0 ? 0 : countValue;
       };
 
     }]);

@@ -43,7 +43,10 @@
           <select ng-options="o as o for o in formConfig.typeOfPaper.value"
                   ng-model="orderForm[formConfig.typeOfPaper.name]"
                   ng-required="true"
-                  value="{{formConfig.typeOfPaper.default}}" required></select>
+                  value="{{formConfig.typeOfPaper.default}}"
+                  name="{{formConfig.typeOfPaper.name}}"
+                  required>
+          </select>
 
 
           <div class="error_placeholder">
@@ -59,7 +62,10 @@
           <select ng-options="o as o for o in formConfig.subjectOfDiscipline.value"
                   ng-model="orderForm[formConfig.subjectOfDiscipline.name]"
                   ng-required="true"
-                  value="{{formConfig.subjectOfDiscipline.default}}" required></select>
+                  value="{{formConfig.subjectOfDiscipline.default}}"
+                  name="{{formConfig.subjectOfDiscipline.name}}"
+                  required>
+          </select>
 
 
           <div class="error_placeholder">
@@ -72,7 +78,49 @@
         <div class="error_wrap">
           <label>{{formConfig.topic.title}}</label>
 
-          <input type="text" ng-model="orderForm[formConfig.topic.name]" value="{{formConfig.topic.default}}" />
+          <input type="text"
+                 ng-model="orderForm[formConfig.topic.name]"
+                 value="{{formConfig.topic.default}}"
+                 name="{{formConfig.topic.name}}" />
+
+
+          <div class="error_placeholder">
+
+              <span class="error error_label"
+                    ng-show="!this.$pristine && this.$error.required">some error</span>
+          </div>
+        </div>
+
+        <div class="error_wrap">
+          <label>{{formConfig.paperInstructions.title}}</label>
+
+          <textarea type="text" ng-model="orderForm[formConfig.paperInstructions.name]"
+                    value="{{formConfig.paperInstructions.default}}"
+                    name="{{formConfig.paperInstructions.name}}"
+                    required
+                    ng-required="true">
+          </textarea>
+
+
+          <div class="error_placeholder">
+
+              <span class="error error_label"
+                    ng-show="!this.$pristine && this.$error.required">some error</span>
+          </div>
+        </div>
+
+        <div class="error_wrap">
+          <label>{{formConfig.sources.title}}</label>
+
+          <span ng-click="changeNumber(formConfig.sources.name, 1)">+</span>
+          <input type="number"
+                 ng-model="orderForm[formConfig.sources.name]"
+                 min="0"
+                 name="Field107"
+                 value="0" />
+
+
+          <del>{{orderForm[formConfig.sources.name]}}</del>
 
 
           <div class="error_placeholder">

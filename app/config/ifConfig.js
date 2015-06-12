@@ -167,7 +167,7 @@ var ifConfig =
     "sources": {
       "title": "Sources",
       "name": "Field107",
-      "default": "",
+      "default": 0,
       "required": false,
       "value": ""
     },
