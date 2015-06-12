@@ -2,7 +2,7 @@ var ifConfig =
 
 {
   "api": {
-    //"url":"http://api.naktb.com/index.php"
+    "url":"http://api.naktb.com/index.php"
   },
 
   "messages": {
@@ -22,6 +22,7 @@ var ifConfig =
     "idStamp": "N0w2t6e+EH57yQSC/MkGC4S8Z6aoFaD3dXMnWJzQHns=",
 
     "academicLevel": {
+      "title": "Academic Level",
       "name": "Field102",
       "default": "",
       "required": true,
@@ -32,6 +33,7 @@ var ifConfig =
     },
 
     "typeOfPaper": {
+      "title": "Type of Paper",
       "name": "Field115",
       "default":"",
       "required": true,
@@ -64,11 +66,12 @@ var ifConfig =
         "Thesis/Dissertation proposal",
         "Thesis/Dissertation chapter",
         "Capstone project",
-        "Other (enter below)"
+        "Other"
       ]
     },
 
     "subjectOfDiscipline": {
+      "title": "Subject of Discipline",
       "name":"Field116",
       "default": "",
       "required": true,
@@ -146,13 +149,15 @@ var ifConfig =
     },
 
     "topic": {
+      "title": "Topic",
       "name": "Field105",
-      "default": "",
+      "default": "sdsd",
       "required": false,
       "value": ""
     },
 
     "paperInstructions": {
+      "title": "Paper Instructions",
       "name": "Field106",
       "default": "",
       "required": true,
@@ -160,6 +165,7 @@ var ifConfig =
     },
 
     "sources": {
+      "title": "Sources",
       "name": "Field107",
       "default": "",
       "required": false,
@@ -167,6 +173,7 @@ var ifConfig =
     },
 
     "additionalMaterials": {
+      "title": "Additional Materials",
       "name": "Field113",
       "default": "",
       "required": false,
@@ -174,6 +181,7 @@ var ifConfig =
     },
 
     "pages": {
+      "title": "Pages",
       "name": "Field108",
       "default": "",
       "required": true,
@@ -181,6 +189,7 @@ var ifConfig =
     },
 
     "firstDraft": {
+      "title": "First Draft",
       "name": "Field109",
       "default": "",
       "required": true,
@@ -194,6 +203,7 @@ var ifConfig =
     },
 
     "powerPointSlides": {
+      "title": "Power Point Slides",
       "name": "Field111",
       "default": "",
       "required": false,
@@ -201,6 +211,7 @@ var ifConfig =
     },
 
     "progressiveDelivery": {
+      "title": "Progressive Delivery",
       "name": "Field111",
       "default": false,
       "required": false,
@@ -208,6 +219,7 @@ var ifConfig =
     },
 
     "email": {
+      "title": "Email",
       "name": "Field110",
       "default": "",
       "required": true,
