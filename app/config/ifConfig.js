@@ -28,6 +28,7 @@ var ifConfig =
         "type": "radio",
         "default": "",
         "required": true,
+        "order":0,
         "value": [
           "General",
           "Specialized"
@@ -40,6 +41,7 @@ var ifConfig =
         "type": "select",
         "default": "",
         "required": true,
+        "order":1,
         "value": [
           "Creative writing",
           "Essay (any type)",
@@ -79,6 +81,7 @@ var ifConfig =
         "type": "select",
         "default": "",
         "required": true,
+        "order":2,
         "value": [
           "Art (Fine arts, Performing arts)",
           "Classic English Literature",
@@ -158,6 +161,7 @@ var ifConfig =
         "type": "text",
         "default": "sdsd",
         "required": false,
+        "order":3,
         "value": ""
       },
 
@@ -167,6 +171,7 @@ var ifConfig =
         "type": "textarea",
         "default": "",
         "required": true,
+        "order":4,
         "value": ""
       },
 
@@ -176,6 +181,7 @@ var ifConfig =
         "type": "number",
         "default": 0,
         "required": false,
+        "order":5,
         "value": ""
       },
 
@@ -185,6 +191,7 @@ var ifConfig =
         "type": "file",
         "default": "",
         "required": false,
+        "order":6,
         "value": ""
       },
 
@@ -192,8 +199,10 @@ var ifConfig =
         "title": "Pages",
         "name": "Field108",
         "type": "number",
-        "default": "",
+        "words": 275,
+        "default": 2,
         "required": true,
+        "order":7,
         "value": ""
       },
 
@@ -203,6 +212,7 @@ var ifConfig =
         "type": "radio",
         "default": "",
         "required": true,
+        "order":8,
         "value": [
           "3 days",
           "4 days",
@@ -216,17 +226,19 @@ var ifConfig =
         "title": "Power Point Slides",
         "name": "Field111",
         "type": "number",
-        "default": "",
+        "default": 0,
         "required": false,
+        "order":9,
         "value": ""
       },
 
       {
         "title": "Progressive Delivery",
-        "name": "Field111",
+        "name": "Field117",
         "type": "checkbox",
         "default": false,
         "required": false,
+        "order":10,
         "value": "Progressive delivery"
       },
 
@@ -236,6 +248,7 @@ var ifConfig =
         "type": "email",
         "default": "",
         "required": true,
+        "order":11,
         "value": ""
       }
     ]

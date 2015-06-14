@@ -1,4 +1,4 @@
-<form id="orderForm" name="orderForm" class="wufoo form topLabel page" autocomplete="off"
+<form id="orderForm" class="wufoo form topLabel page" autocomplete="off"
       enctype="multipart/form-data"
       method="post" novalidate
       ng-controller="OrderFormController">
@@ -12,22 +12,6 @@
 
       <div class="small-10 small-centered column">
 
-        <!--<div class="error_wrap">-->
-
-        <!--<label>{{formConfig.academicLevel.title}}</label>-->
-
-        <!--<span ng-model="orderForm[formConfig.academicLevel.name]" class="button tiny round"-->
-        <!--ng-class="{disabled: orderForm[formConfig.academicLevel.name] == formConfig.academicLevel.value[0] }"-->
-        <!--ng-click="orderForm[formConfig.academicLevel.name] = formConfig.academicLevel.value[0]">-->
-        <!--{{formConfig.academicLevel.value[0]}}-->
-        <!--</span>-->
-        <!--<span ng-model="orderForm[formConfig.academicLevel.name]" class="button tiny round"-->
-        <!--ng-class="{disabled: orderForm[formConfig.academicLevel.name] == formConfig.academicLevel.value[1] }"-->
-        <!--ng-click="orderForm[formConfig.academicLevel.name] = formConfig.academicLevel.value[1]">-->
-        <!--{{formConfig.academicLevel.value[1]}}-->
-        <!--</span>-->
-
-
         <!--<div class="error_placeholder">-->
 
         <!--<span class="error error_label"-->
@@ -36,158 +20,111 @@
         <!--</div>-->
 
 
-        <!--<div class="error_wrap">-->
-        <!--<label>{{formConfig.typeOfPaper.title}}</label>-->
-
-        <!--<select ng-options="o as o for o in formConfig.typeOfPaper.value"-->
-        <!--ng-model="orderForm[formConfig.typeOfPaper.name]"-->
-        <!--ng-required="true"-->
-        <!--value="{{formConfig.typeOfPaper.default}}"-->
-        <!--name="{{formConfig.typeOfPaper.name}}"-->
-        <!--required>-->
-        <!--</select>-->
+        <div class="row" ng-repeat="input in orderForm track by $index| orderBy: 'order'">
+          <div class="large-12 columns">
 
 
-        <!--<div class="error_placeholder">-->
+            <!-- if Select -->
+            <div ng-if="input.type == 'select'">
+              <label for="input_{{input.name}}">{{input.title}} <small ng-show="input.required">Required</small></label>
+              <select name="{{input.name}}" id="select_{{input.name}}"
+                      ng-model="input.default"
+                      ng-required="input.required"
+                  >
+                <option
+                    ng-repeat="option in input.value"
+                    value="{{option}}">
+                  {{option}}
+                </option>
+              </select>
+            </div>
 
-        <!--<span class="error error_label"-->
-        <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
-        <!--</div>-->
-        <!--</div>-->
+            <!-- if File -->
+            <div ng-if="input.type == 'file'">
+              <label for="input_{{input.name}}">{{input.title}} <small ng-show="input.required">Required</small></label>
+              <input type="file" ng-model="input.default" id="input_{{input.name}}"/>
+            </div>
 
-        <!--<div class="error_wrap">-->
-        <!--<label>{{formConfig.subjectOfDiscipline.title}}</label>-->
-
-        <!--<select ng-options="o as o for o in formConfig.subjectOfDiscipline.value"-->
-        <!--ng-model="orderForm[formConfig.subjectOfDiscipline.name]"-->
-        <!--ng-required="true"-->
-        <!--value="{{formConfig.subjectOfDiscipline.default}}"-->
-        <!--name="{{formConfig.subjectOfDiscipline.name}}"-->
-        <!--required>-->
-        <!--</select>-->
-
-
-        <!--<div class="error_placeholder">-->
-
-        <!--<span class="error error_label"-->
-        <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="error_wrap">-->
-        <!--<label>{{formConfig.topic.title}}</label>-->
-
-        <!--<input type="text"-->
-        <!--ng-model="orderForm[formConfig.topic.name]"-->
-        <!--value="{{formConfig.topic.default}}"-->
-        <!--name="{{formConfig.topic.name}}" />-->
-
-
-        <!--<div class="error_placeholder">-->
-
-        <!--<span class="error error_label"-->
-        <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="error_wrap">-->
-        <!--<label>{{formConfig.paperInstructions.title}}</label>-->
-
-        <!--<textarea type="text" ng-model="orderForm[formConfig.paperInstructions.name]"-->
-        <!--value="{{formConfig.paperInstructions.default}}"-->
-        <!--name="{{formConfig.paperInstructions.name}}"-->
-        <!--required-->
-        <!--ng-required="true">-->
-        <!--</textarea>-->
-
-
-        <!--<div class="error_placeholder">-->
-
-        <!--<span class="error error_label"-->
-        <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="error_wrap">-->
-        <!--<label>{{formConfig.sources.title}}</label>-->
-
-        <!--<span ng-click="changeNumber(formConfig.sources.name, 1)">+</span>-->
-        <!--<input type="number"-->
-        <!--ng-model="orderForm[formConfig.sources.name]"-->
-        <!--min="0"-->
-        <!--name="Field107"-->
-        <!--value="0" />-->
-
-
-        <!--<del>{{orderForm[formConfig.sources.name]}}</del>-->
-
-
-        <!--<div class="error_placeholder">-->
-
-        <!--<span class="error error_label"-->
-        <!--ng-show="!this.$pristine && this.$error.required">some error</span>-->
-        <!--</div>-->
-        <!--</div>-->
-
-
-        <div class="input_wrap" ng-repeat="input in formConfig.controls">
-
-          <label for="input_{{input.name}}">{{input.title}}</label>
-
-          <!-- if Select -->
-          <div ng-if="input.type == 'select'">
-            <select name="{{input.name}}" id="select_{{input.name}}"
-                    ng-model="orderForm[input.name]"
-                    ng-required="input.required"
-                    >
-              <option
-                  ng-repeat="option in input.value"
-                  value="{{option}}">
-                {{option}}
-              </option>
-            </select>
-          </div>
-
-          <!-- if File -->
-          <div ng-if="input.type == 'file'">
-            <input type="file" ng-model="input.name" id="input_{{input.name}}" />
-          </div>
-
-          <!-- if Textarea -->
-          <div ng-if="input.type == 'textarea'">
+            <!-- if Textarea -->
+            <div ng-if="input.type == 'textarea'">
+              <label for="input_{{input.name}}">{{input.title}} <small ng-show="input.required">Required</small></label>
             <textarea ng-model="input.default" id="input_{{input.name}}"
                       ng-required="input.required"
                       name="{{input.name}}">
             </textarea>
-          </div>
+            </div>
+
+            <!-- if Text -->
+            <div ng-if="input.type == 'text'">
+              <label for="input_{{input.name}}">{{input.title}} <small ng-show="input.required">Required</small></label>
+              <input type="text" ng-model="input.default" id="input_{{input.name}}"
+                     ng-required="input.required"
+                     name="{{input.name}}"/>
+            </div>
+
+            <!-- if Email -->
+            <div ng-if="input.type == 'email'">
+              <label for="input_{{input.name}}">{{input.title}} <small ng-show="input.required">Required</small></label>
+              <input type="email" ng-model="input.default" id="input_{{input.name}}"
+                     ng-required="input.required"
+                     name="{{input.name}}"/>
+            </div>
 
 
-          <!-- if Number -->
-          <div ng-if="input.type == 'number'">
+            <!-- if Radio -->
+            <div class="control_radio" ng-if="input.type == 'radio'">
 
-            <div class="small-4 small-centered column">
-              <div class="row collapse prefix-round postfix-round">
+              <label for="input_{{input.name}}">{{input.title}} <small ng-show="input.required">Required</small></label>
+            <span ng-model="input.default" class="button tiny round"
+                  ng-repeat="radio in input.value"
+                  ng-class="{disabled: input.default == input.value[$index] }"
+                  ng-click="input.default = input.value[$index]">
+            {{input.value[$index]}}
+            </span>
+            </div>
 
-                <div class="small-3 columns">
-                  <span ng-click="changeNumber(input.name,1)" class="button postfix">+</span>
+            <!-- if Checkbox -->
+            <div ng-if="input.type == 'checkbox'">
+              <input type="checkbox"
+                     id="input_{{input.name}}"
+                     ng-model="input.default"/>
+              <label for="input_{{input.name}}">{{input.title}} <small ng-show="input.required">Required</small></label>
+
+            </div>
+
+
+            <!-- if Number -->
+            <div class="control_number" ng-if="input.type == 'number'">
+              <label for="input_{{input.name}}">{{input.title}} <small ng-show="input.required">Required</small></label>
+
+              <div class="small-4 small-centered column">
+                <div class="row collapse prefix-round postfix-round">
+
+                  <div class="small-3 columns">
+                    <span ng-click="changeNumber($index,1)" class="button postfix">+</span>
+                  </div>
+                  <div class="small-6 columns">
+                    <input type="number"
+                           ng-model="input.default"
+                           id="input_{{input.name}}"
+                           min="0"
+                           ng-required="input.required"
+                           value="{{input.default}}"
+                        />
+                    <span class="radius secondary label" ng-if="input.words">
+                      {{ input.words * input.default }} words
+                    </span>
+                  </div>
+                  <div class="small-3 columns">
+                    <span ng-click="changeNumber($index,-1)" class="button prefix">-</span>
+                  </div>
                 </div>
-                <div class="small-6 columns">
-                  <input type="number"
-                         ng-model="orderForm[input.name]"
-                         id="input_{{input.name}}"
-                         min="0"
-                         ng-required="input.required"
-                         value="{{input.default}}"
-                      />
-                </div>
-                <div class="small-3 columns">
-                  <span ng-click="changeNumber(input.name,-1)" class="button prefix">-</span>
-                </div>
+
+
               </div>
             </div>
-          </div>
 
-          {{ input | json }}
+          </div>
         </div>
 
 
@@ -209,8 +146,8 @@
     </div>
   </div>
   <div class="hide">
-    <textarea name="comment" id="comment" rows="1" cols="1" ng-model="callForm.comment"></textarea>
-    <input type="hidden" id="idstamp" name="idstamp"
-           value="9dEE38FnE/bKQEDjFp3OJfov8wcRTE2xjgD/QyJg8Wo=" ng-model="callForm.idstamp"/>
+    <!--<textarea name="comment" id="comment" rows="1" cols="1" ng-model="callForm.comment"></textarea>-->
+    <!--<input type="hidden" id="idstamp" name="idstamp"-->
+    <!--value="9dEE38FnE/bKQEDjFp3OJfov8wcRTE2xjgD/QyJg8Wo=" ng-model="callForm.idstamp"/>-->
   </div>
 </form>

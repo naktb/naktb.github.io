@@ -1,19 +1,13 @@
 angular.module('naktbApp.partials')
     .controller('OrderFormController', ['$scope', '$route', 'formHandler', function($scope, $route, formHandler) {
 
-      $scope.formConfig = ifConfig.orderForm;
+      var controls = ifConfig.orderForm.controls;
       $scope.spinner = false;
       $scope.phonePat = /^[0-9]+$/;
       $scope.formName = ifConfig.orderForm.id;
-      $scope.orderForm = {};
-      $scope.orderForm.idstamp = ifConfig.orderForm.idStamp;
-      $scope.orderForm.comment = '';
-      //$scope.orderForm[ifConfig.orderForm.sources.name] = ifConfig.orderForm.sources.default;
-
-      angular.forEach($scope.formConfig.controls, function(item){
-        console.log(item);
-        $scope.orderForm[item.name] = item.default;
-      });
+      $scope.orderForm = controls;
+      //$scope.orderForm.idstamp = ifConfig.orderForm.idStamp;
+      //$scope.orderForm.comment = '';
 
 
       $scope.noResend = false;
@@ -50,11 +44,10 @@ angular.module('naktbApp.partials')
       };
 
 
-      $scope.changeNumber = function(model, count) {
-        var currentValue = $scope.orderForm[model],
+      $scope.changeNumber = function(index, count) {
+        var currentValue = $scope.orderForm[index].default,
             countValue = currentValue + count;
-        debugger;
-        $scope.orderForm[model] = countValue < 0 ? 0 : countValue;
+        $scope.orderForm[index].default = countValue < 0 ? 0 : countValue;
       };
 
     }]);

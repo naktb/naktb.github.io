@@ -89,6 +89,22 @@ $spinner_size: 16px;
   }
 }
 
+.control_number {
+  margin-bottom: 1rem;
+  input {
+    margin-bottom: 0;
+  }
+}
+.control_radio {
+  margin-bottom: 1rem;
+  .button {
+    &:last-child {
+      margin-right: 0;
+    }
+    margin-right: 0.5rem;
+  }
+}
+
 
 form .row .postfix-round.row.collapse .postfix {
   border-radius: 0;
