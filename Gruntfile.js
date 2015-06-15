@@ -24,6 +24,7 @@ module.exports = function(grunt) {
         "app/WhoWeAre/WhoWeAreController.js",
 
         "app/directives/menuHighlight.js",
+        "app/directives/fileRead.js",
 
         "app/services/formHandler.js",
 
