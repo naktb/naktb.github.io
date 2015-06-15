@@ -14,10 +14,9 @@
 .form_panel {
   padding: 1.25rem;
   position: relative;
-  background: transparentize($mid_gray,0.75);
+  background: transparentize($mid_gray, 0.75);
   border-radius: 6px;
 }
-
 
 $spinner_size: 16px;
 .spinner_wrap {
@@ -88,4 +87,45 @@ $spinner_size: 16px;
       box-shadow: none;
     }
   }
+}
+
+.control_number {
+  margin-bottom: 1rem;
+  input {
+    text-align: center;
+    margin-bottom: 0;
+  }
+}
+.control_radio {
+  margin-bottom: 1rem;
+  .button {
+    &:last-child {
+      margin-right: 0;
+    }
+    margin-right: 0.5rem;
+  }
+}
+
+label {
+  .required {
+    font-size: 0;
+    color: #d42638;
+    &:after {
+      content: '*';
+      font-size: 1rem;
+    }
+  }
+}
+
+
+form .row .postfix-round.row.collapse .postfix {
+  border-radius: 0;
+  border-bottom-right-radius: 1000px;
+  border-top-right-radius: 1000px;
+}
+
+form .row .prefix-round.row.collapse .prefix {
+  border-radius: 0;
+  border-bottom-left-radius: 1000px;
+  border-top-left-radius: 1000px;
 }

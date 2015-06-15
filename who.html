@@ -1,102 +1,51 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="naktbApp">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نَــكْــتِّــب | Who We Are</title>
-  <link rel="stylesheet" href="css/app.css" />
-  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
-  <script src="bower_components/modernizr/modernizr.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نَــكْــتِّــب | {{pageTitle}}</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <script src="vendors/modernizr/modernizr.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>-->
 </head>
-<body class="home03">
-<div class="wrapper">
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1 class="logo">
-        <a href="index.html"><img src="img/logo.png" alt="نَــكْــتِّــب" width="46" height="46" /><span class="slogan"> نَــكْــتِّــب</span></a>
-      </h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href=""><span> </span></a></li>
-  </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right top-menu">
-      <li class="active"><a href="who.html" class="button">من نحن</a></li>
-      <li><a href="service.html" class="button">خدماتنا</a></li>
-      <li><a href="price.html" class="button" >الأسعار</a></li>
-      <li><a href="contact.html" class="button">اطلب</a></li>
-    </ul>
+<body class="home03" ng-controller="MainController">
+    <div class="wrapper">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1 class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="نَــكْــتِّــب" width="46" height="46" /><span class="slogan"> نَــكْــتِّــب</span></a>
+          </h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href=""><span>نَــكْــتِّــب</span></a>
+                </li>
+            </ul>
 
-  </section>
-</nav>
-
-<div class="main_content">
-  <div class="row">
-
-    <div class="large-7 column">
-      <div class="panel ">
-
-        <div class="rtl">
+            <section class="top-bar-section">
+                <div ng-include="topMenuUrl" ng-controller="TopMenuController"></div>
+            </section>
+        </nav>
 
 
-          <h2 class="h1"></h2>
+        <div ng-view></div>
 
-
-
-          <p>
-            رسالتنا:
-</p>
-          <p>
-
-نعلم في وقتنا الحاضر ان كتابة الأبحاث تحتاج للوقت الكافي والدقة في البحث والكتابة. و نعلم أيضاً أن تقديم البحث بالطريقة المثلى يحتاج الى الكاتب والباحث المختص في المجال.  فمن هذا المنطلق عملنا لتوفير ما يزيد عن 50 باحث في جميع المجالات والذين يعملون لخدمتكم على مدار الساعة لخدمتكم وتقديم أبحاثكم بالشكل الأفضل .
-          </p>
-          <p>
-
-خدمة العملاء:
-
-          </p>
-          <p>
-لقد عملنا على توظيف الكوادر والكفاءات القادرة على مساعدتكم وإجابة جميع أسئلتكم  وتقديم ما ترغبون به من أبحاث على مدار 24 ساعه إيمانناً بأن خدمتم على الوجه الصحيح واجب علينا وسبيل لنجاحنا .
-         </p>
-         
-         <p class="address">
-العنوان:<br>
-
-
-
-مؤسسة نكتب التعليمية<br>
-
-            
-الرياض ، المملكة العربية السعودية
-            <br>
-            
-طريق أمير المؤمنين عثمان بن عفان
-
-          </p>
-        </div>
-      </div>
-
+        <div class="push"></div>
     </div>
-  </div>
-</div>
-  <div class="push"></div>
-</div>
-
-<footer class="footer">
-  <div class="footer_nav">
-    <a class="footer_link" href="return_policy.html">سياسة الإسترجاع</a>
-    <a class="footer_link" href="terms.html">الشروط والاحكام</a>
-  </div>
-</footer>
 
 
-<script src="bower_components/jquery/jquery.min.js"></script>
-<script src="bower_components/foundation/js/foundation.min.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.offcanvas.js"></script>
-<script>
-  $(document).foundation();
-</script>
+    <footer class="footer" ng-include="footerMenuUrl" ng-controller="FooterMenuController">
+    </footer>
+
+    <script type="text/javascript" src="/js/vendors.min.js"></script>
+
+    <script type="text/javascript" src="/js/app.min.js"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
 </body>
+
 </html>

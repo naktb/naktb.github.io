@@ -1,4 +1,6 @@
 *.DS_Store
 /bower_components/*
+!/vendors/modernizr/modernizr.js
+/vendors/*
 /node_modules/*
 *.psd

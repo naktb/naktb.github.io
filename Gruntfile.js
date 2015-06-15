@@ -1,80 +1,170 @@
-module.exports = function (grunt) {
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        htmlbuild: {
-            dist: {
-                src: 'pages/**/*.html',
-                dest: '_site/',
-                options: {
-                    beautify: true,
-//                    prefix: '//some-cdn',
-                    relative: true,
-//                scripts: {
-//                    bundle: [
-//                        '<%= fixturesPath %>/scripts/*.js',
-//                        '!**/main.js',
-//                    ],
-//                    main: '<%= fixturesPath %>/scripts/main.js'
-//                },
-                    styles: {
-                        app: [
-                            '<%= compiledSite %>/css/print.css',
-                            '<%= compiledSite %>/css/screen.css'
-                        ]
-                    },
-                    sections: {
-                        views: '<%= fixturesPath %>/views/**/*.html',
-                        templates: '<%= fixturesPath %>/templates/**/*.html',
-                        layout: {
-                            head: '<%= fixturesPath %>/layout/head.html',
-                            header: '<%= fixturesPath %>/layout/header.html',
-                            match_centr_top: '<%= fixturesPath %>/layout/match_centr_top.html',
-                            top_menu: '<%= fixturesPath %>/layout/top_menu.html',
-                            logo_section: '<%= fixturesPath %>/layout/logo_section.html',
-                            logo_section_02: '<%= fixturesPath %>/layout/logo_section_02.html',
-                            second_menu: '<%= fixturesPath %>/layout/second_menu.html',
-                            second_menu_02: '<%= fixturesPath %>/layout/second_menu_02.html',
-                            footer: '<%= fixturesPath %>/layout/footer.html',
-                            sidebar: '<%= fixturesPath %>/layout/sidebar.html',
-                            sidebar_02: '<%= fixturesPath %>/layout/sidebar_02.html'
-                        }
-                    },
-                    data: {
-                        // Data to pass to templates
-                        version: "0.1.0",
-                        title: "test"
-                    }
-                }
-            }
-        },
-        sass: {
-            options: {
-                includePaths: ['bower_components/foundation/scss']
-            },
-            dist: {
-                options: {
-                    outputStyle: 'compressed'
-                },
-                files: {
-                    'css/app.css': 'scss/app.scss'
-                }
-            }
-        },
+module.exports = function(grunt) {
 
-        watch: {
-            grunt: { files: ['Gruntfile.js'] },
+  var assets = {
+    js: {
+      "vendor": [
+          'vendors/angular/angular.min.js',
+          'vendors/angular-route/angular-route.min.js',
+          'vendors/jquery/dist/jquery.min.js',
+          'vendors/foundation/js/foundation.min.js',
+          'vendors/fastclick/lib/fastclick.js'
+      ],
+      "app": [
+        "app/config/ifConfig.js",
 
-            sass: {
-                files: 'scss/**/*.scss',
-                tasks: ['sass']
-            }
+        "app/app.js",
+        "app/main.js",
+
+        "app/Contact/ContactController.js",
+        "app/Home/HomeController.js",
+        "app/Price/PriceController.js",
+        "app/ReturnPolicy/ReturnPolicyController.js",
+        "app/Service/ServiceController.js",
+        "app/Terms/TermsController.js",
+        "app/WhoWeAre/WhoWeAreController.js",
+
+        "app/directives/menuHighlight.js",
+        "app/directives/fileRead.js",
+
+        "app/services/formHandler.js",
+        "app/services/formDataObject.js",
+
+        "app/helpers/common.js",
+
+        "app/partials/CallMeBackController.js",
+        "app/partials/FooterMenuController.js",
+        "app/partials/TopMenuController.js",
+        "app/partials/OrderFormController.js",
+
+      ]
+    }
+  };
+
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
+    sass: {
+      options: {
+        includePaths: ['vendors/foundation/scss']
+      },
+      dist: {
+        options: {
+          outputStyle: 'compressed',
+          sourceMap: true,
+        },
+        files: {
+          'css/app.css': 'scss/app.scss'
         }
-    });
+      }
+    },
 
-    grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-html-build');
+    watch: {
+      grunt: {
+        options: {
+          reload: true
+        },
+        files: ['Gruntfile.js']
+      },
 
-    grunt.registerTask('build', ['sass']);
-    grunt.registerTask('default', ['build', 'watch']);
-}
+      sass: {
+        files: 'scss/**/*.scss',
+        tasks: ['sass']
+      },
+
+      ngAnnotate: {
+        files: assets.js.app,
+        tasks: ['ngAnnotate']
+      }
+    },
+
+    browserSync: {
+      bsFiles: {
+        src : [
+          'css/app.css',
+          '*.html',
+          'app/**/*.html',
+          'js/*.js'
+        ]
+      },
+      options: {
+        watchTask: true,
+        server: {
+          baseDir: "./"
+        }
+      }
+    },
+
+    fixturesPath: "app",
+
+    htmlbuild: {
+      dist: {
+        src: 'templates/index.html',
+        dest: './',
+        options: {
+          beautify: true,
+          relative: true,
+          scripts: {
+            app: 'js/app.min.js',
+            bundle: [
+              assets.js.vendor,
+              assets.js.app
+            ],
+            main: '<%= fixturesPath %>/js/app.min.js'
+          },
+          styles: {
+            bundle: [
+              '<%= fixturesPath %>/css/libs.css',
+              '<%= fixturesPath %>/css/dev.css'
+            ],
+            test: '<%= fixturesPath %>/css/inline.css'
+          },
+          sections: {
+            views: ['<%= fixturesPath %>/Home/*.html', '<%= fixturesPath %>/Price/*.html'],
+            templates: '/templates/pages/*.html',
+            layout: {
+              header: '<%= fixturesPath %>/layout/header.html',
+              footer: '<%= fixturesPath %>/layout/footer.html'
+            }
+          },
+          data: {
+            // Data to pass to templates
+            version: "0.1.0",
+            title: "test",
+          },
+        }
+      }
+    },
+
+    uglify: {
+      options: {
+        mangle: false,
+        beautify: true
+      },
+      my_target: {
+        files: {
+            'js/vendors.min.js': assets.js.vendor
+        }
+      }
+    },
+
+    ngAnnotate: {
+      options: {},
+      app: {
+        files: {
+          'js/app.min.js': assets.js.app
+        }
+      }
+    }
+
+  });
+
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-html-build');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-ng-annotate');
+
+  grunt.registerTask('build', ['sass']);
+  grunt.registerTask('default', ['browserSync','watch']);
+}			
