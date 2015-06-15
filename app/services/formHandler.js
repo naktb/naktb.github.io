@@ -1,33 +1,37 @@
-angular.module('naktbApp.services').factory('formHandler', function ($http, formDataObject) {
+angular.module('naktbApp.services').factory('formHandler', function ($http, formDataObject, commonHelpers) {
 
   var sendForm = function (form, cb) {
-    //$scope.spinner = true;
-    //$scope.noResend = true;
-    var apiUrl = ifConfig.api.url ? ifConfig.api.url : '/examples/index.php';
-    var http = $http.post(apiUrl + '?functionName=submitForm&formName=' + form.name, form.data)
+    var formSubmitUrl = commonHelpers.formSubmitUrl(form.name);
+    var http = $http.post(formSubmitUrl, form.data)
         .success(function (data, status, headers, config) {
-          //$scope.spinner = false;
           cb(status);
         })
         .error(function (data, status, headers, config) {
-          //$scope.spinner = false;
-          //$scope.sendError = true;
           cb(status);
         });
 
     return http;
   };
 
-  var submitWithFile = function (data) {
-    return $http({
+  var submitWithFile = function (form, cb) {
+    var formSubmitUrl = commonHelpers.formSubmitUrl(form.name);
+    var http = $http({
       method: 'POST',
-      url: '/your/url',
+      url: formSubmitUrl,
       headers: {
         'Content-Type': 'multipart/form-data'
       },
-      data: data,
+      data: form.data,
       transformRequest: formDataObject
-    });
+    })
+        .success(function (data, status, headers, config) {
+          cb(status);
+        })
+        .error(function (data, status, headers, config) {
+          cb(status);
+        });
+
+    return http;
   };
 
   var formMessage = function ($scope, status) {

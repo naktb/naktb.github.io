@@ -1,5 +1,5 @@
 angular.module('naktbApp.partials')
-    .controller('OrderFormController', ['$scope', '$route', 'formHandler', function ($scope, $route, formHandler) {
+    .controller('OrderFormController', ['$scope', '$route', 'formHandler', 'commonHelpers', function ($scope, $route, formHandler, commonHelpers) {
 
       var controls = ifConfig.orderForm.controls;
       $scope.spinner = false;
@@ -24,21 +24,15 @@ angular.module('naktbApp.partials')
       $scope.checkForm = function () {
         $scope.spinner = true;
         if (!$scope.noResend) {
-          var data = $scope.arrayToObject($scope.orderForm,'name','default');
-          //formHandler.sendForm({name: $scope.formName, data: data}, formSentCb);
-          formHandler.submitWithFile(data);
+          var data = commonHelpers.arrayToObject($scope.orderForm,'name','default');
+          data.idstamp = ifConfig.orderForm.idStamp;
+
+          formHandler.submitWithFile({name: $scope.formName, data: data}, formSentCb);
         }
 
       };
 
-      $scope.arrayToObject = function (arr, key, val) {
-        var obj = {};
-        for (var i = 0; i < arr.length; i++) {
-          var el = arr[i];
-          obj[el[key]] = el[val];
-        }
-        return obj;
-      };
+
 
       $scope.checkDefaults = function (inputName) {
         formHandler.checkDefault(this.callMeBackForm, inputName);
