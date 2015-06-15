@@ -1,15 +1,17 @@
 angular.module('naktbApp.directives')
-    .directive('ngMenuHighlight', function($rootScope, $window) {
+    .directive('fileread', function($rootScope, $window) {
       return {
-        restrict: 'A',
-        link: function (scope, element, attr) {
-          scope.$watch('page', function(){
-            if (scope.menu.slug === $rootScope.page) {
-              element.addClass('active');
-            } else {
-              element.removeClass('active');
-            }
-          })
+        scope: {
+          fileread: "="
+        },
+        link: function (scope, element, attributes) {
+          element.bind("change", function (changeEvent) {
+            scope.$apply(function () {
+              scope.fileread = changeEvent.target.files[0];
+              // or all selected files:
+              // scope.fileread = changeEvent.target.files;
+            });
+          });
         }
       }
     });

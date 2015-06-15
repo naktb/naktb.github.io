@@ -27,6 +27,7 @@ module.exports = function(grunt) {
         "app/directives/fileRead.js",
 
         "app/services/formHandler.js",
+        "app/services/formDataObject.js",
 
         "app/helpers/common.js",
 

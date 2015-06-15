@@ -1,4 +1,4 @@
-angular.module('naktbApp.services').factory('formHandler', function($http){
+angular.module('naktbApp.services').factory('formHandler', function ($http, formDataObject) {
 
   var sendForm = function (form, cb) {
     //$scope.spinner = true;
@@ -16,6 +16,18 @@ angular.module('naktbApp.services').factory('formHandler', function($http){
         });
 
     return http;
+  };
+
+  var submitWithFile = function (data) {
+    return $http({
+      method: 'POST',
+      url: '/your/url',
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      data: data,
+      transformRequest: formDataObject
+    });
   };
 
   var formMessage = function ($scope, status) {
@@ -58,6 +70,7 @@ angular.module('naktbApp.services').factory('formHandler', function($http){
 
   return {
     sendForm: sendForm,
+    submitWithFile: submitWithFile,
     formMessage: formMessage,
     checkDefault: checkDefault,
     checkEntered: checkEntered

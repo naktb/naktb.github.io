@@ -25,7 +25,8 @@ angular.module('naktbApp.partials')
         $scope.spinner = true;
         if (!$scope.noResend) {
           var data = $scope.arrayToObject($scope.orderForm,'name','default');
-          formHandler.sendForm({name: $scope.formName, data: data}, formSentCb);
+          //formHandler.sendForm({name: $scope.formName, data: data}, formSentCb);
+          formHandler.submitWithFile(data);
         }
 
       };
