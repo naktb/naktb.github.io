@@ -25,7 +25,6 @@ angular.module('naktbApp.partials')
 
       $scope.checkForm = function () {
         $scope.spinner = true;
-        console.log($scope.callMeBackForm);
         if (!$scope.noResend) {
           formHandler.sendForm({name:$scope.formName, data: $scope.callForm}, formSentCb);
         }

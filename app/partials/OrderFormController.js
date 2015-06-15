@@ -21,13 +21,15 @@ angular.module('naktbApp.partials')
       };
 
 
-      $scope.checkForm = function () {
+      $scope.checkForm = function ($form) {
         $scope.spinner = true;
-        if (!$scope.noResend) {
+        if (!$scope.noResend && $form.$valid) {
           var data = commonHelpers.arrayToObject($scope.orderForm,'name','default');
           data.idstamp = ifConfig.orderForm.idStamp;
 
           formHandler.submitWithFile({name: $scope.formName, data: data}, formSentCb);
+        } else {
+          $scope.spinner = false;
         }
 
       };

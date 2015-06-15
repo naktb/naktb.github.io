@@ -2,7 +2,7 @@ var ifConfig =
 
 {
   "api": {
-    //"url": "http://api.naktb.com/index.php"
+    "url": "http://api.naktb.com/index.php"
   },
 
   "messages": {

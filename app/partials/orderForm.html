@@ -27,7 +27,7 @@
             <!-- if Select -->
             <div ng-if="input.type == 'select'">
               <label for="input_{{input.name}}">{{input.title}}
-                <small ng-show="input.required">Required</small>
+                <small ng-show="input.required" class="required">Required</small>
               </label>
               <select name="{{input.name}}" id="select_{{input.name}}"
                       ng-model="input.default"
@@ -44,7 +44,7 @@
             <!-- if File -->
             <div ng-if="input.type == 'file'">
               <label for="input_{{input.name}}">{{input.title}}
-                <small ng-show="input.required">Required</small>
+                <small ng-show="input.required" class="required">Required</small>
               </label>
               <input type="file" fileread="input.default" id="input_{{input.name}}"/>
             </div>
@@ -52,7 +52,7 @@
             <!-- if Textarea -->
             <div ng-if="input.type == 'textarea'">
               <label for="input_{{input.name}}">{{input.title}}
-                <small ng-show="input.required">Required</small>
+                <small ng-show="input.required" class="required">Required</small>
               </label>
             <textarea ng-model="input.default" id="input_{{input.name}}"
                       ng-required="input.required"
@@ -63,7 +63,7 @@
             <!-- if Text -->
             <div ng-if="input.type == 'text'">
               <label for="input_{{input.name}}">{{input.title}}
-                <small ng-show="input.required">Required</small>
+                <small ng-show="input.required" class="required">Required</small>
               </label>
               <input type="text" ng-model="input.default" id="input_{{input.name}}"
                      ng-required="input.required"
@@ -73,7 +73,7 @@
             <!-- if Email -->
             <div ng-if="input.type == 'email'">
               <label for="input_{{input.name}}">{{input.title}}
-                <small ng-show="input.required">Required</small>
+                <small ng-show="input.required" class="required">Required</small>
               </label>
               <input type="email" ng-model="input.default" id="input_{{input.name}}"
                      ng-required="input.required"
@@ -85,7 +85,7 @@
             <div class="control_radio" ng-if="input.type == 'radio'">
 
               <label for="input_{{input.name}}">{{input.title}}
-                <small ng-show="input.required">Required</small>
+                <small ng-show="input.required" class="required">Required</small>
               </label>
             <span ng-model="input.default" class="button tiny round"
                   ng-repeat="radio in input.value"
@@ -101,7 +101,7 @@
                      id="input_{{input.name}}"
                      ng-model="input.default"/>
               <label for="input_{{input.name}}">{{input.title}}
-                <small ng-show="input.required">Required</small>
+                <small ng-show="input.required" class="required">Required</small>
               </label>
 
             </div>
@@ -110,7 +110,7 @@
             <!-- if Number -->
             <div class="control_number" ng-if="input.type == 'number'">
               <label for="input_{{input.name}}">{{input.title}}
-                <small ng-show="input.required">Required</small>
+                <small ng-show="input.required" class="required">Required</small>
               </label>
 
               <div class="small-4 small-centered column">
@@ -147,7 +147,7 @@
       </div>
 
       <div class="large-12 column">
-        <button class="left round submit button" ng-class="{disabled: orderFormWrap.$invalid}" id="saveForm" name="saveForm" type="button" ng-click="checkForm()">
+        <button class="left round submit button" ng-class="{disabled: orderFormWrap.$invalid}" id="saveForm" name="saveForm" type="button" ng-click="checkForm(orderFormWrap)">
           اتصل بي
         </button>
 

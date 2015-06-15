@@ -92,6 +92,7 @@ $spinner_size: 16px;
 .control_number {
   margin-bottom: 1rem;
   input {
+    text-align: center;
     margin-bottom: 0;
   }
 }
@@ -102,6 +103,17 @@ $spinner_size: 16px;
       margin-right: 0;
     }
     margin-right: 0.5rem;
+  }
+}
+
+label {
+  .required {
+    font-size: 0;
+    color: #d42638;
+    &:after {
+      content: '*';
+      font-size: 1rem;
+    }
   }
 }
 
