@@ -1,207 +1,51 @@
 <!doctype html>
-<html class="no-js" lang="en" data-ng-app="naktbApp">
+<html class="no-js" lang="en" ng-app="naktbApp">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>نَــكْــتِّــب | Prices</title>
-  <link rel="stylesheet" href="css/app.css"/>
-  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
-  <script src="bower_components/modernizr/modernizr.js"></script>
-  <script src="js/angular.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نَــكْــتِّــب | {{pageTitle}}</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <script src="vendors/modernizr/modernizr.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>-->
 </head>
-<body class="home03 contact_page">
-<div class="wrapper">
 
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1 class="logo">
-        <a href="index.html"><img src="img/logo.png" alt="نَــكْــتِّــب" width="46" height="46" /><span class="slogan"> نَــكْــتِّــب</span></a>
-      </h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href=""><span> </span></a></li>
-  </ul>
+<body class="home03" ng-controller="MainController">
+    <div class="wrapper">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1 class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="نَــكْــتِّــب" width="46" height="46" /><span class="slogan"> نَــكْــتِّــب</span></a>
+          </h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href=""><span>نَــكْــتِّــب</span></a>
+                </li>
+            </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right top-menu">
-      <li><a href="who.html" class="button">من نحن</a></li>
-      <li><a href="service.html" class="button">خدماتنا</a></li>
-      <li class="active"><a href="price.html" class="button" >الأسعار</a></li>
-      <li><a href="contact.html" class="button">اطلب</a></li>
-    </ul>
+            <section class="top-bar-section">
+                <div ng-include="topMenuUrl" ng-controller="TopMenuController"></div>
+            </section>
+        </nav>
 
-  </section>
-</nav>
 
-<div class="main_content">
-  <div class="row">
+        <div ng-view></div>
 
-    <div class="large-7 columns">
-      <div class="panel">
-        <h2 class="h1"> </h2>
-
-         <h2 class="h1"> </h2>
-
-        <p>
-<h5>
-اسعارنا تتفاوت على حسب الدرجة العلمية وعدد الصفحات وموعد التسليم
-</h5>
-
-<h5>
-السعر التقديري
-</h5>
-<p>
-درجة الدكتوراه ، رسائل الماجستير والتدقيق اللغوي : تعتمد أسعارنا في درجة الدكتوراه ، رسائل الماجستير و التدقيق اللغوي على موضوع البحث وعدد الصفحات المطلوبة
-</p>
-
-<h5>
-السعر الثابت
-</h5>
-<p>
-الجدول أدناه  يبين السعر الثابت للصفحة الواحدة  لكل من بحوث درجة البكالوريوس والماجستير
-        </p>
-
-        <div class="ltr">
-          <table class="pricing-table text-center">
-            <tbody>
-            <tr>
-              <th><span>مرحلة الماجستير</span></th>
-              <th><span>مرحلة البكالوريوس </span></th>
-              <th><span>موعد التسليم</span></th>
-            </tr>
-            <tr>
-              <td><span>30 ريــال للصفحة</span></td>
-              <td><span>20 ريــال للصفحة</span></td>
-              <td><span>10 &nbsp;أيــام</span></td>
-            </tr>
-            <tr>
-              <td><span>33 ريــال للصفحة</span></td>
-              <td><span>23 ريــال للصفحة</span></td>
-              <td><span>7 &nbsp; أيــام</span></td>
-            </tr>
-            <tr>
-              <td><span>39 ريــال للصفحة</span></td>
-              <td><span>29 ريــال للصفحة</span></td>
-              <td><span>6 &nbsp;أيــام</span></td>
-            </tr>
-            <tr>
-              <td><span>49 ريــال للصفحة</span></td>
-              <td><span>39 ريــال للصفحة</span></td>
-              <td><span>4 &nbsp;أيــام</span></td>
-            </tr>
-            <tr>
-              <td><span>70 ريــال للصفحة</span></td>
-              <td><span>60 ريــال للصفحة</span></td>
-              <td><span>3 &nbsp;أيــام</span></td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-
-        <form id="callForm" name="form" class="wufoo form topLabel page" autocomplete="off"
-              enctype="multipart/form-data"
-              method="post" novalidate
-              data-ng-controller="CallMeCtrl">
-            <div class="spinner_wrap" data-ng-show="spinner">
-                <img class="spinner" src="img/spinner.gif" alt="" width="16" height="16 " />
-            </div>
-            <div class="form_panel request_form">
-                <div class="row">
-                    <div class="large-6 medium-6 columns">
-                        <div class="error_wrap">
-                            <input id="Field3" name="Field3" data-ng-model="callForm.Field3" type="text"
-                                   class="field text medium"
-                                   value=""
-                                   maxlength="255"
-                                   tabindex="2"
-                                   required
-                                   placeholder="الإســـــم"
-                                   data-ng-class="{error: form.Field3.$error.required }"
-                                   data-ng-focus="checkDefaults(form.Field3.$name)"
-                                   data-ng-blur="checkEntered(form.Field3.$name)"
-                                    />
-
-                            <div class="error_placeholder">
-
-              <span class="error error_label"
-                    data-ng-show="!form.Field3.$pristine && form.Field3.$error.required">من فضلك إكتب إسمك </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="large-6 medium-6 columns">
-                        <div class="error_wrap">
-                            <input id="Field1" class="field text medium" name="Field1" data-ng-model="callForm.Field1"
-                                   tabindex="1" required
-                                   value="رقم هاتفك"
-                                   minLength="7"
-                                   maxlength="13"
-                                   type="text"
-                                   placeholder="0000000000"
-                                   data-ng-minlength="7"
-                                   data-ng-maxlength="13"
-                                   data-ng-pattern="phonePat"
-                                   data-ng-class="{error: form.Field1.$error.required || !form.Field1.$valid}"
-                                   data-ng-focus="checkDefaults(form.Field1.$name)"
-                                   data-ng-blur="checkEntered(form.Field1.$name)"
-                                    />
-
-                            <div class="error_placeholder">
-              <span class="error error_label"
-                    data-ng-show="!form.Field1.$pristine && form.Field1.$error.required">فضلاً أدخل رقم هاتفك هنا </span>
-              <span class="error error_label" data-ng-show="!form.Field1.$valid && !form.Field1.$error.required">
-              فضلاً ادخل رقم هاتفك هنا لنتصل بك </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="large-12 column">
-                        <button class="left round submit button" id="saveForm" name="saveForm" type="button"
-                                data-ng-disabled="form.$error.required || form.Field3.$pristine || form.Field1.$pristine || !form.$valid || noResend" data-ng-click="checkForm()" >
-                            اتصل بي
-                        </button>
-
-                        <div class="clear"></div>
-                        <div data-alert class="alert-box success radius" data-ng-show="sendSuccess">
-                            ! شكراً لتواصلك معنا. سوف يتصل بك خدمة العملاء في أقرب وقت ممكن لمساعدتك
-                            <a href="#" class="close" >&times;</a>
-                        </div>
-
-                        <div data-alert class="alert-box warning radius" data-ng-show="sendError">
-                            يوجد لديك خطاء فضلاً تأكد من المعلومات المدخلة وحاول مرةاخرى <a href="mailto:info@jetthoughts.com">info@jetthoughts.com</a>
-                            <a href="#" class="close" >&times;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hide">
-                <textarea name="comment" id="comment" rows="1" cols="1" data-ng-model="callForm.comment"></textarea>
-                <input type="hidden" id="idstamp" name="idstamp"
-                       value="9dEE38FnE/bKQEDjFp3OJfov8wcRTE2xjgD/QyJg8Wo=" data-ng-model="callForm.idstamp" />
-            </div>
-        </form>
-
+        <div class="push"></div>
     </div>
-  </div>
-</div>
-<div class="push"></div>
-</div>
-<footer class="footer">
-  <div class="footer_nav">
-    <a class="footer_link" href="return_policy.html">سياسة الإسترجاع</a>
-    <a class="footer_link" href="terms.html">الشروط والاحكام</a>
-  </div>
-</footer>
 
 
+    <footer class="footer" ng-include="footerMenuUrl" ng-controller="FooterMenuController">
+    </footer>
 
-<script src="bower_components/jquery/jquery.min.js"></script>
-<script src="bower_components/foundation/js/foundation.min.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.offcanvas.js"></script>
-<script>
-  $(document).foundation();
-</script>
-<script src="js/app.js"></script>
+    <script type="text/javascript" src="/js/vendors.min.js"></script>
+
+    <script type="text/javascript" src="/js/app.min.js"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
 </body>
+
 </html>
