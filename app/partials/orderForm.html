@@ -10,7 +10,7 @@
   <div class="form_panel request_form">
     <div class="row">
 
-      <div class="small-10 small-centered column">
+      <div class="medium-10 medium-centered column">
 
         <!--<div class="error_placeholder">-->
 
@@ -113,7 +113,7 @@
                 <small ng-show="input.required" class="required">Required</small>
               </label>
 
-              <div class="small-4 small-centered column">
+              <div class="medium-4 small-centered column">
                 <div class="row collapse prefix-round postfix-round">
 
                   <div class="small-3 columns">
@@ -143,22 +143,25 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="large-12 column">
+            <button class="left round submit button" ng-class="{disabled: orderFormWrap.$invalid}" id="saveForm"
+                    name="saveForm" type="button" ng-click="checkForm(orderFormWrap)">
+              اتصل بي
+            </button>
 
-      </div>
+            <div class="clear"></div>
+            <div data-alert class="alert-box radius" ng-class="{alert: formError, success: !formError}"
+                 ng-show="formMessage">
+              {{ formMessage }}
+              <a href="#" class="close" ng-click="closeMessageBox()">&times;</a>
+            </div>
 
-      <div class="large-12 column">
-        <button class="left round submit button" ng-class="{disabled: orderFormWrap.$invalid}" id="saveForm" name="saveForm" type="button" ng-click="checkForm(orderFormWrap)">
-          اتصل بي
-        </button>
-
-        <div class="clear"></div>
-        <div data-alert class="alert-box radius" ng-class="{alert: formError, success: !formError}"
-             ng-show="formMessage">
-          {{ formMessage }}
-          <a href="#" class="close" ng-click="closeMessageBox()">&times;</a>
+          </div>
         </div>
 
       </div>
+
     </div>
   </div>
   <div class="hide">

@@ -28,6 +28,9 @@
 
 .toggle-topbar {
   list-style: none;
+  span {
+    font-size: 0;
+  }
 }
 
 .top-bar-section {
