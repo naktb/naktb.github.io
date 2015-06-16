@@ -19,7 +19,7 @@ angular.module('naktbApp.services').factory('formHandler', function ($http, form
       method: 'POST',
       url: formSubmitUrl,
       headers: {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': undefined
       },
       data: form.data,
       transformRequest: formDataObject
