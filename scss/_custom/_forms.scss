@@ -100,13 +100,18 @@ $spinner_size: 16px;
   margin-bottom: 1rem;
   .button {
     &:last-child {
-      margin-right: 0;
+      margin-left: 0;
     }
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
     margin-bottom: 0.5rem;
   }
 }
 
+
+textarea {
+  min-height: 200px;
+  resize: vertical;
+}
 
 label {
   .required {

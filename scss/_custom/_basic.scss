@@ -1,5 +1,9 @@
 @import "colours";
 
+body {
+  direction: rtl;
+}
+
 .home01 {
   background: #fff url("../img/home_bg.jpg") no-repeat 100% 100%;
 }
