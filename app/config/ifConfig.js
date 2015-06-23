@@ -17,26 +17,26 @@ var ifConfig =
     }
   },
 
-  "orderForm": {
+  "صفحة الطلب": {
     "id": "q1qdx6e10trwg4z",
     "idStamp": "N0w2t6e+EH57yQSC/MkGC4S8Z6aoFaD3dXMnWJzQHns=",
 
     "controls": [
       {
-        "title": "Academic Level",
+        "title": "الدرجة العلمية",
         "name": "Field102",
         "type": "radio",
         "default": "",
         "required": true,
         "order":0,
         "value": [
-          "General",
-          "Specialized"
+          "عام",
+          "متخصص"
         ]
       },
 
       {
-        "title": "Type of Paper",
+        "title": "نوع البحث",
         "name": "Field115",
         "type": "select",
         "default": "",
@@ -76,87 +76,66 @@ var ifConfig =
       },
 
       {
-        "title": "Subject of Discipline",
+        "title": "مجال البحث",
         "name": "Field116",
         "type": "select",
         "default": "",
         "required": true,
         "order":2,
         "value": [
-          "Art (Fine arts, Performing arts)",
-          "Classic English Literature",
-          "Composition",
-          "English 101",
-          "Film & Theater studies",
-          "History",
-          "Linguistics",
-          "Literature",
-          "Music",
-          "Philosophy",
-          "Poetry",
-          "Religious studies",
-          "Shakespeare",
-          "Anthropology",
-          "Cultural and Ethnic Studies",
-          "Economics",
-          "Ethics",
-          "Political science",
-          "Psychology",
-          "Social Work and Human Services",
-          "Sociology",
-          "Tourism",
-          "Urban Studies",
-          "Women's & gender studies",
-          "Accounting",
-          "Business Studies",
-          "Finance",
-          "Human Resources Management (HRM)",
-          "International Relations",
-          "Logistics",
-          "Management",
-          "Marketing",
-          "Public Relations (PR)",
-          "Astronomy (and other Space Sciences)",
-          "Biology (and other Life Sciences)",
-          "Chemistry",
-          "Ecology",
-          "Geography",
-          "Geology (and other Earth Sciences)",
-          "Physics",
-          "Zoology",
-          "Computer science",
-          "Mathematics",
-          "Statistics",
-          "Agriculture",
-          "Application Letters",
-          "Architecture, Building and Planning",
-          "Aviation",
-          "Civil Engineering",
-          "Communications",
-          "Criminal Justice",
-          "Criminal law",
-          "Education",
-          "Engineering",
-          "Environmental studies and Forestry",
-          "Family and consumer science",
-          "Health Care",
-          "International Trade",
-          "IT, Web",
-          "Law",
-          "Leadership Studies",
-          "Medical Sciences (Anatomy, Physiology, Pharmacology etc.)",
-          "Medicine",
-          "Nursing",
-          "Nutrition/Dietary",
-          "Public Administration",
-          "Sports",
-          "Technology",
-          "Other (enter below)"
+          "اللغة العربية",
+          "اللغة الإنجليزية",
+          "التاريخ",
+          "الجغرافيا",
+          "علم النفس",
+          "علم الاجتماع",
+          "الثقافة اسلامية",
+          "التربية بدنية",
+          "التربية الفنية",
+          "التربية الخاصة",
+          "السياسات تربوية",
+          "مناهج وطرق التدريس",
+          "تقنيات التعليم",
+          "البحوث الادارة التربوي",
+          "بحوث علم النفس",
+          "رياضيات",
+          "احصاء",
+          "كيمياء",
+          "فيزياء",
+          "أحياء",
+          "العلوم السياسية",
+          "القانون العام",
+          "القانون الخاص",
+          "العناية الحرجة",
+          "باطني جراحي",
+          "الامومة والطفولة",
+          "الصحة النفسية",
+          "الصحة العامة",
+          "الطوارئ",
+          "الموارد البشرية",
+          "المحاسبة والتمويل",
+          "نظم المعلومات الادارية",
+          "ادارة العمليات",
+          "المحاسبة",
+          "الاسواق المالية والمصارف",
+          "ادارة الاعمال",
+          "التسويق",
+          "علوم الحاسب الالي",
+          "تقنية المعلومات",
+          "نظم المعلومات",
+          "الهندسة الميكانيكية",
+          "الهندسة الصناعــية",
+          "الهندسة الكهربـائــية",
+          "الهندسة الكيميائية",
+          "الهندسة المدنــــية",
+          "التدقيق اللغوي",
+          "الترجمة",
+          "أخرى"
         ]
       },
 
       {
-        "title": "Topic",
+        "title": "الموضوع",
         "name": "Field105",
         "type": "text",
         "default": "sdsd",
@@ -166,7 +145,7 @@ var ifConfig =
       },
 
       {
-        "title": "Paper Instructions",
+        "title": "تعليمات الكتابة",
         "name": "Field106",
         "type": "textarea",
         "default": "",
@@ -176,7 +155,7 @@ var ifConfig =
       },
 
       {
-        "title": "Sources",
+        "title": "المراجع",
         "name": "Field107",
         "type": "number",
         "default": 0,
@@ -186,7 +165,7 @@ var ifConfig =
       },
 
       {
-        "title": "Additional Materials",
+        "title": "ارفاق ملفات اضافية",
         "name": "Field113",
         "type": "file",
         "default": "",
@@ -196,7 +175,7 @@ var ifConfig =
       },
 
       {
-        "title": "Pages",
+        "title": "عدد الصفحات",
         "name": "Field108",
         "type": "number",
         "words": 275,
@@ -207,23 +186,23 @@ var ifConfig =
       },
 
       {
-        "title": "First Draft",
+        "title": "موعد التسليم",
         "name": "Field109",
         "type": "radio",
         "default": "",
         "required": true,
         "order":8,
         "value": [
-          "3 days",
-          "4 days",
-          "6 days",
-          "7 days",
-          "10 days"
+          "٣ أيام",
+          "٤ أيام",
+          "٦ أيام",
+          "٧ أيام",
+          "١٠ أيام"
         ]
       },
 
       {
-        "title": "Power Point Slides",
+        "title": "عرض باور بوينت",
         "name": "Field111",
         "type": "number",
         "default": 0,
@@ -233,17 +212,17 @@ var ifConfig =
       },
 
       {
-        "title": "Progressive Delivery",
+        "title": "تسليم تدريجي",
         "name": "Field117",
         "type": "checkbox",
         "default": false,
         "required": false,
         "order":10,
-        "value": "Progressive delivery"
+        "value": "٢٥٪ تكلفة اضافية"
       },
 
       {
-        "title": "Email",
+        "title": "البريد الالكتروني",
         "name": "Field110",
         "type": "email",
         "default": "",
