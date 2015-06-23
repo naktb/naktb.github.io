@@ -17,7 +17,7 @@ var ifConfig =
     }
   },
 
-  "صفحة الطلب": {
+  "orderForm": {
     "id": "q1qdx6e10trwg4z",
     "idStamp": "N0w2t6e+EH57yQSC/MkGC4S8Z6aoFaD3dXMnWJzQHns=",
 
