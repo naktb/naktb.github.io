@@ -127,7 +127,7 @@ var ifConfig =
         "title": "الموضوع",
         "name": "Field105",
         "type": "text",
-        "default": "sdsd",
+        "default": "",
         "required": false,
         "order":3,
         "value": ""
