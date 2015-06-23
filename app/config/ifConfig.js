@@ -7,7 +7,7 @@ var ifConfig =
 
   "messages": {
     "formFailed": " يوجد لديك خطاء فضلاً تأكد من المعلومات المدخلة وحاول مرةاخرى contact@naktb.com",
-    "formSuccess": "! شكراً لتواصلك معنا. سوف يتصل بك خدمة العملاء في أقرب وقت ممكن لمساعدتك"
+    "formSuccess": "شكراً. تم استلام طلبك وسيقوم احد موظفين خدمات العملاء بتزويدك بتكلفة العمل خلال ٢٤ ساعة"
   },
 
   "callMeBackForm": {
@@ -43,35 +43,24 @@ var ifConfig =
         "required": true,
         "order":1,
         "value": [
-          "Creative writing",
-          "Essay (any type)",
-          "Research paper",
-          "Presentation or speech",
-          "Book/movie review",
-          "Term paper",
-          "Coursework",
-          "Research proposal",
-          "Dissertation",
-          "Thesis",
-          "Business plan",
-          "Case study",
-          "Admission essay",
-          "Article review",
-          "Annotated bibliography",
-          "Argumentative essays",
-          "Critical thinking",
-          "Biographies",
-          "Thesis/Dissertation abstract",
-          "Dissertation chapter - Introduction",
-          "Dissertation chapter - Literature review",
-          "Dissertation chapter - Methodology",
-          "Dissertation chapter - Results",
-          "Dissertation chapter - Discussion",
-          "Dissertation chapter - Conclusion",
-          "Thesis/Dissertation proposal",
-          "Thesis/Dissertation chapter",
-          "Capstone project",
-          "Other"
+          "الكتابة الإبداعية",
+          "بحث (أي نوع)",
+          "مقال,
+          "عرض أو خطاب",
+          "استعراض كتاب / فيلم",
+          "اقتراح بحوث",
+          "أطروحة",
+          "الرسالة",
+          "خطة عمل",
+          "دراسة حالة",
+          "مقال القبول",
+          "مراجعة مادة,
+          "ببليوغرافيا مشروحة",
+          "مقالات جدلية",
+          "التفكير الناقد",
+          "السيرة الذاتية",
+          "ملخص",
+          "أخرى"
         ]
       },
 
